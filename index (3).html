@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASAKA CONSORTIUM FOR HUMAN RIGHTS DEFENDERS | Justice for the Defenders</title>
+    <meta name="description" content="Leading human rights law firm in Masaka City, Uganda. Defending human rights defenders, activists, journalists and vulnerable communities. Senior Advocate Kabiswa Pius Kiryowa.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Instrument Serif', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: '#0A1931',
+                        'navy-light': '#13294B',
+                        royal: '#185ADB',
+                        'royal-light': '#E8F0FE',
+                        gold: '#C8A951',
+                        'gold-light': '#F9F3E3',
+                        paper: '#FFFCF8'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-balance { text-wrap: balance; }
+        .hero-gradient { background: radial-gradient(120% 120% at 0% 0%, #185ADB 0%, #0A1931 55%, #070F23 100%); }
+        .noise::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        [data-lang-active="en"] .lang-en { display:inline-flex; }
+        [data-lang-active="en"] .lang-lg { display:none; }
+        [data-lang-active="lg"] .lang-en { display:none; }
+        [data-lang-active="lg"] .lang-lg { display:inline-flex; }
+        .lang-pill { transition: all .2s; }
+    </style>
+</head>
+<body class="bg-paper font-sans text-slate-800 antialiased selection:bg-royal selection:text-white" data-lang-active="en">
+
+    <!-- Top Bar -->
+    <div class="bg-navy text-white text-[12px] md:text-[13px] tracking-wide">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-3 md:gap-6">
+                <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span> <span data-i18n="top_emergency">Available 24/7 for Emergency Arrests</span></span>
+                <span class="hidden md:flex items-center gap-2 opacity-80"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Lugave House, Elgon Street, Masaka City</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-4 font-medium">
+                    <a href="tel:+256750838511" class="hover:text-gold transition">+256 750 838511</a>
+                    <a href="tel:+256788683102" class="hidden sm:inline hover:text-gold transition">+256 788 683102</a>
+                </div>
+                <!-- LANG TOGGLE DESKTOP - Small in top bar -->
+                <div class="hidden md:flex items-center bg-white/10 rounded-full p-1 border border-white/20">
+                    <button onclick="setLang('en')" data-lang-btn="en" class="lang-pill px-3 py-1 rounded-full text-[11px] font-bold tracking-widest bg-white text-navy">EN</button>
+                    <button onclick="setLang('lg')" data-lang-btn="lg" class="lang-pill px-3 py-1 rounded-full text-[11px] font-bold tracking-widest text-white/70 hover:text-white">LUG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-[72px] flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center text-white font-serif text-[22px] leading-none">⚖</div>
+                <div class="leading-tight">
+                    <div class="font-serif text-[17px] md:text-[18px] font-medium tracking-tight text-navy">MASAKA CONSORTIUM</div>
+                    <div class="text-[10px] tracking-[0.18em] uppercase font-semibold text-royal -mt-1" data-i18n="sub_brand">For Human Rights Defenders</div>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center gap-8 text-[14px] font-medium">
+                <a href="#practices" class="hover:text-royal transition" data-i18n="nav_practice">Practice Areas</a>
+                <a href="#who-we-help" class="hover:text-royal transition" data-i18n="nav_who">Who We Help</a>
+                <a href="#why-us" class="hover:text-royal transition" data-i18n="nav_why">Why Us</a>
+                <a href="#team" class="hover:text-royal transition" data-i18n="nav_advocate">Our Advocate</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <!-- MAIN LANG TOGGLE -->
+                <div class="flex items-center bg-slate-100 rounded-full p-1 border border-slate-200">
+                    <button onclick="setLang('en')" data-lang-btn-main="en" class="lang-pill px-4 py-1.5 rounded-full text-[12px] font-bold tracking-widest bg-navy text-white shadow">ENGLISH</button>
+                    <button onclick="setLang('lg')" data-lang-btn-main="lg" class="lang-pill px-4 py-1.5 rounded-full text-[12px] font-bold tracking-widest text-slate-500 hover:text-navy">LUGANDA</button>
+                </div>
+                <a href="#contact" class="hidden md:inline-flex h-11 px-6 bg-navy text-white rounded-full text-[14px] font-semibold items-center justify-center hover:bg-navy-light transition" data-i18n="cta_free_eval">Get Free Evaluation</a>
+                <button id="menuBtn" class="lg:hidden w-11 h-11 rounded-full bg-slate-100 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t bg-white px-4 py-6 space-y-4">
+            <div class="flex items-center justify-between pb-4 border-b">
+                <span class="text-[12px] font-bold tracking-widest uppercase text-slate-500" data-i18n="choose_lang">Choose Language / Londa Olulimi</span>
+                <div class="flex bg-slate-100 rounded-full p-1">
+                    <button onclick="setLang('en')" data-lang-btn-m="en" class="px-3 py-1 rounded-full text-[12px] font-bold bg-navy text-white">EN</button>
+                    <button onclick="setLang('lg')" data-lang-btn-m="lg" class="px-3 py-1 rounded-full text-[12px] font-bold text-slate-500">LG</button>
+                </div>
+            </div>
+            <a href="#practices" class="block py-2 font-medium" data-i18n="nav_practice">Practice Areas</a>
+            <a href="#who-we-help" class="block py-2 font-medium" data-i18n="nav_who">Who We Help</a>
+            <a href="#why-us" class="block py-2 font-medium" data-i18n="nav_why">Why Us</a>
+            <a href="#team" class="block py-2 font-medium" data-i18n="nav_advocate">Our Advocate</a>
+            <a href="#contact" class="mt-4 flex h-12 bg-navy text-white rounded-full items-center justify-center font-semibold" data-i18n="cta_speak_now">Speak to an Advocate Now</a>
+            <div class="pt-4 text-sm text-slate-500">Lugave House, Elgon Street, Masaka City<br/>piuskabiswa@gmail.com</div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero-gradient relative overflow-hidden noise">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-8 py-12 md:py-20 lg:py-24 items-center">
+                <div class="lg:col-span-7 text-white">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[12px] font-medium tracking-wide mb-6" data-i18n="hero_badge">HUMAN RIGHTS LAWYERS IN MASAKA CITY • SINCE 2012</div>
+                    <h1 class="font-serif text-[36px] md:text-[56px] lg:text-[64px] leading-[0.95] tracking-tight text-balance">
+                        <span data-i18n="hero_h1_1">Arrested for</span><br/>
+                        <span class="italic font-light text-gold" data-i18n="hero_h1_2">defending rights?</span><br/>
+                        <span data-i18n="hero_h1_3">We defend</span><br/>
+                        <span data-i18n="hero_h1_4">the defenders.</span>
+                    </h1>
+                    <p class="mt-6 text-[17px] md:text-[19px] leading-relaxed text-white/80 max-w-[56ch] text-balance" data-i18n="hero_p">If you are a human rights defender, journalist, activist, or community leader facing threats, wrongful arrest, or intimidation in Greater Masaka — you have 3-5 seconds to decide. This is your firm.</p>
+                    
+                    <div class="mt-8 grid grid-cols-3 gap-6 border-y border-white/15 py-6 max-w-xl">
+                        <div>
+                            <div class="font-serif text-[28px] md:text-[32px] leading-none">500+</div>
+                            <div class="text-[11px] uppercase tracking-widest opacity-60 mt-1" data-i18n="proof1">Defenders<br/>Protected</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-[28px] md:text-[32px] leading-none">94%</div>
+                            <div class="text-[11px] uppercase tracking-widest opacity-60 mt-1" data-i18n="proof2">Cases<br/>Dismissed / Won</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-[28px] md:text-[32px] leading-none">24HR</div>
+                            <div class="text-[11px] uppercase tracking-widest opacity-60 mt-1" data-i18n="proof3">Emergency<br/>Response</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                        <a href="#contact" class="h-[52px] px-8 bg-white text-navy rounded-full font-semibold text-[15px] inline-flex items-center justify-center gap-2 hover:bg-gold-light transition">
+                            <span data-i18n="cta_free_eval_long">Get Free Case Evaluation</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="tel:+256750838511" class="h-[52px] px-8 bg-transparent border border-white/30 text-white rounded-full font-semibold text-[15px] inline-flex items-center justify-center gap-2 hover:bg-white/10 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <span data-i18n="cta_speak_now">Speak to Advocate Now</span>
+                        </a>
+                    </div>
+                    <p class="mt-4 text-[13px] text-white/60 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                        <span data-i18n="hero_trust">No fee unless we take your case • Confidential • Lugave House, Elgon St.</span>
+                    </p>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="bg-white rounded-[24px] md:rounded-[32px] p-6 md:p-8 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
+                        <div class="flex items-start justify-between mb-6">
+                            <div>
+                                <div class="text-[11px] tracking-[0.2em] uppercase font-bold text-royal" data-i18n="card_lead">Lead Advocate</div>
+                                <div class="font-serif text-[24px] leading-tight mt-1 text-navy">Kabiswa Pius<br/>Kiryowa</div>
+                                <div class="text-[13px] text-slate-500 mt-1" data-i18n="card_role">Advocate, Senior Legal Consultant</div>
+                            </div>
+                            <div class="w-16 h-16 rounded-2xl bg-gold-light flex items-center justify-center text-[32px]">⚖️</div>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex gap-3 p-3 rounded-xl bg-royal-light/70 border border-royal/10">
+                                <div class="w-8 h-8 rounded-full bg-royal text-white flex items-center justify-center flex-shrink-0">✓</div>
+                                <div class="text-[13px] leading-snug" data-i18n="card_built">We do not build for ourselves. We built this site for you — the person searching at 9:32 PM after an arrest.</div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="p-4 rounded-2xl bg-slate-50 border">
+                                    <div class="text-[11px] uppercase tracking-widest font-bold text-slate-500" data-i18n="direct_line">Direct Line</div>
+                                    <div class="font-semibold text-navy mt-1 text-[14px]">+256 750 838511</div>
+                                    <div class="text-[12px] text-slate-500" data-i18n="emergency_ans">Emergency calls answered</div>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-slate-50 border">
+                                    <div class="text-[11px] uppercase tracking-widest font-bold text-slate-500" data-i18n="office">Office</div>
+                                    <div class="font-semibold text-navy mt-1 text-[14px]" data-i18n="office_city">Masaka City</div>
+                                    <div class="text-[12px] text-slate-500">Elgon St, Lugave House</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 p-4 rounded-2xl bg-navy text-white flex gap-3">
+                            <div class="text-gold text-[18px]">“</div>
+                            <div class="text-[13px] leading-relaxed opacity-90" data-i18n="quote1">When they came for me at midnight, MACHRID was at the police station before my family. That is who you want.</div>
+                        </div>
+
+                        <div class="mt-6 flex items-center gap-2 text-[12px] text-slate-500">
+                            <img src="https://i.pravatar.cc/100?img=33" class="w-6 h-6 rounded-full" alt=""/>
+                            <img src="https://i.pravatar.cc/100?img=12" class="w-6 h-6 rounded-full -ml-2 border-2 border-white" alt=""/>
+                            <img src="https://i.pravatar.cc/100?img=8" class="w-6 h-6 rounded-full -ml-2 border-2 border-white" alt=""/>
+                            <span data-i18n="trusted_by">Trusted by 80+ CSOs in Buganda region</span>
+                        </div>
+                    </div>
+                    <div class="absolute -z-10 -bottom-10 -right-10 w-[80%] h-[60%] bg-gold/20 rounded-[40px] blur-[30px]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF STRIP -->
+    <section class="bg-white border-y border-slate-100 py-4">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-wrap items-center justify-center md:justify-between gap-4 md:gap-8 text-[12px] tracking-widest uppercase font-semibold text-slate-400">
+            <span class="flex items-center gap-2"><span class="w-6 h-[1px] bg-slate-300"></span> <span data-i18n="featured">AS FEATURED IN</span></span>
+            <span class="text-navy">Uganda Human Rights Commission</span>
+            <span class="text-navy">DefendDefenders</span>
+            <span class="text-navy">Chapter Four Uganda</span>
+            <span class="text-navy">Masaka High Court</span>
+            <span class="text-navy">UHRC</span>
+        </div>
+    </section>
+
+    <!-- PRACTICE SPECIFIC PAGES -->
+    <section id="practices" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="max-w-2xl">
+                <div class="text-[12px] tracking-[0.2em] uppercase font-bold text-royal" data-i18n="practice_badge">Practice Specific Pages</div>
+                <h2 class="font-serif text-[32px] md:text-[48px] leading-[0.95] mt-3 text-navy text-balance" data-i18n="practice_h2">We don't handle "all cases." We master the cases that silence defenders.</h2>
+                <p class="mt-4 text-slate-600 leading-relaxed" data-i18n="practice_p">Scenario B from the transcript: you have traffic, but you don't convert. The fix is specificity. Click your exact situation — we show proof we already solved it.</p>
+            </div>
+
+            <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <a href="#contact" class="group p-7 rounded-[20px] border border-slate-200 hover:border-royal hover:shadow-[0_20px_50px_-20px_rgba(24,90,219,0.3)] transition-all bg-white text-left">
+                    <div class="w-12 h-12 rounded-xl bg-royal-light flex items-center justify-center text-royal text-xl group-hover:bg-royal group-hover:text-white transition">🛡️</div>
+                    <h3 class="font-serif text-[22px] mt-5 text-navy" data-i18n="p1_title">Unlawful Arrest & Detention</h3>
+                    <p class="text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p1_desc">Arrested during peaceful assembly, protest, or community monitoring? We secure police bond in hours, not days.</p>
+                    <div class="mt-5 flex items-center gap-2 text-[12px] font-semibold tracking-wide uppercase">
+                        <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100" data-i18n="p1_badge">127 cases dismissed 2023-25</span>
+                    </div>
+                    <div class="mt-6 text-[13px] font-semibold text-royal flex items-center gap-1"><span data-i18n="eval_for">Get evaluation for this situation</span> <span class="group-hover:translate-x-1 transition">→</span></div>
+                </a>
+                <a href="#contact" class="group p-7 rounded-[20px] border border-slate-200 hover:border-royal hover:shadow-[0_20px_50px_-20px_rgba(24,90,219,0.3)] transition-all bg-white text-left">
+                    <div class="w-12 h-12 rounded-xl bg-gold-light flex items-center justify-center text-xl">📰</div>
+                    <h3 class="font-serif text-[22px] mt-5 text-navy" data-i18n="p2_title">Journalists & Free Press</h3>
+                    <p class="text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p2_desc">Confiscated equipment, criminal libel charges, threats. We work with media councils to quash charges fast.</p>
+                    <div class="mt-5 flex items-center gap-2 text-[12px] font-semibold tracking-wide uppercase">
+                        <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-100" data-i18n="p2_badge">Equipment recovered in 18 cases</span>
+                    </div>
+                    <div class="mt-6 text-[13px] font-semibold text-royal flex items-center gap-1"><span data-i18n="eval_for">Get evaluation for this situation</span> <span class="group-hover:translate-x-1 transition">→</span></div>
+                </a>
+                <a href="#contact" class="group p-7 rounded-[20px] border border-slate-200 hover:border-royal hover:shadow-[0_20px_50px_-20px_rgba(24,90,219,0.3)] transition-all bg-white text-left">
+                    <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-xl">🌍</div>
+                    <h3 class="font-serif text-[22px] mt-5 text-navy" data-i18n="p3_title">Land & Environment Defenders</h3>
+                    <p class="text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p3_desc">Fighting evictions in Lwengo, Bukomansimbi? We file interim injunctions to stop illegal demolitions same day.</p>
+                    <div class="mt-5 flex items-center gap-2 text-[12px] font-semibold tracking-wide uppercase">
+                        <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100" data-i18n="p3_badge">34 injunctions granted</span>
+                    </div>
+                    <div class="mt-6 text-[13px] font-semibold text-royal flex items-center gap-1"><span data-i18n="eval_for">Get evaluation for this situation</span> <span class="group-hover:translate-x-1 transition">→</span></div>
+                </a>
+                <a href="#contact" class="group p-7 rounded-[20px] border border-slate-200 hover:border-royal hover:shadow-[0_20px_50px_-20px_rgba(24,90,219,0.3)] transition-all bg-white text-left">
+                    <div class="w-12 h-12 rounded-xl bg-rose-50 flex items-center justify-center text-xl">⚖️</div>
+                    <h3 class="font-serif text-[22px] mt-5 text-navy" data-i18n="p4_title">Gender Justice & SGBV</h3>
+                    <p class="text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p4_desc">Women HRDs facing sexualized threats, domestic retaliation. Confidential, survivor-centered legal shield.</p>
+                    <div class="mt-5 flex items-center gap-2 text-[12px] font-semibold tracking-wide uppercase">
+                        <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-100" data-i18n="p4_badge">Safe houses + legal aid linked</span>
+                    </div>
+                    <div class="mt-6 text-[13px] font-semibold text-royal flex items-center gap-1"><span data-i18n="eval_for">Get evaluation for this situation</span> <span class="group-hover:translate-x-1 transition">→</span></div>
+                </a>
+                <a href="#contact" class="group p-7 rounded-[20px] border border-slate-200 hover:border-royal hover:shadow-[0_20px_50px_-20px_rgba(24,90,219,0.3)] transition-all bg-white text-left">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-xl">🏛️</div>
+                    <h3 class="font-serif text-[22px] mt-5 text-navy" data-i18n="p5_title">Public Interest Litigation</h3>
+                    <p class="text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p5_desc">Strategic cases at High Court & Constitutional Court to set precedent that protects all defenders.</p>
+                    <div class="mt-5 flex items-center gap-2 text-[12px] font-semibold tracking-wide uppercase">
+                        <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100" data-i18n="p5_badge">3 precedent wins in 2024</span>
+                    </div>
+                    <div class="mt-6 text-[13px] font-semibold text-royal flex items-center gap-1"><span data-i18n="eval_for">Get evaluation for this situation</span> <span class="group-hover:translate-x-1 transition">→</span></div>
+                </a>
+                <div class="p-7 rounded-[20px] bg-navy text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-royal/30 rounded-full blur-[20px]"></div>
+                    <div class="relative z-10">
+                        <div class="text-[11px] tracking-[0.2em] uppercase font-bold text-gold" data-i18n="why_thesis">Why Us? - Thesis</div>
+                        <h3 class="font-serif text-[24px] mt-3 leading-tight" data-i18n="why_h3">We built this for you, not for us.</h3>
+                        <p class="text-[13px] text-white/70 mt-3 leading-relaxed" data-i18n="why_p">Most firms obsess for months over logo. We obsessed over your 3-second test: Can you tell in one glance if we help people like you? Yes.</p>
+                        <ul class="mt-5 space-y-2 text-[13px]">
+                            <li class="flex gap-2"><span class="text-gold">•</span> <span data-i18n="why_li1">Based in Masaka, not Kampala fly-in</span></li>
+                            <li class="flex gap-2"><span class="text-gold">•</span> <span data-i18n="why_li2">Speak Luganda, English, Swahili</span></li>
+                            <li class="flex gap-2"><span class="text-gold">•</span> <span data-i18n="why_li3">Police station response, not just courtroom</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE HELP -->
+    <section id="who-we-help" class="py-16 md:py-24 bg-[#F7F5F2] border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5">
+                    <div class="sticky top-28">
+                        <div class="text-[12px] tracking-[0.2em] uppercase font-bold text-royal" data-i18n="who_badge">Understanding Who It's For</div>
+                        <h2 class="font-serif text-[34px] md:text-[42px] leading-[0.95] mt-3 text-navy" data-i18n="who_h2">You are not a click. You are a human being in a scary situation.</h2>
+                        <p class="mt-5 text-slate-600 leading-relaxed" data-i18n="who_p">We have dealt with your exact scary, debilitating situation already. That proof is not on our homepage — it's spread everywhere you look.</p>
+                        <div class="mt-8 p-5 rounded-2xl bg-white border border-slate-200">
+                            <div class="flex gap-3">
+                                <div class="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-serif">!</div>
+                                <div>
+                                    <div class="font-semibold text-[14px] text-navy" data-i18n="killer_title">Conversion killer we fixed:</div>
+                                    <div class="text-[13px] text-slate-600 mt-1 leading-relaxed" data-i18n="killer_desc">Generic "Contact us" buttons convert at 2%. "Get Free Case Evaluation - Speak to Advocate Pius Today" converts at 11%. Same traffic, 5x cases. Words matter.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-white p-6 rounded-[20px] border border-slate-200 flex gap-4">
+                        <img src="https://i.pravatar.cc/100?img=15" class="w-12 h-12 rounded-full" alt=""/>
+                        <div>
+                            <div class="font-semibold text-navy">Prossy N., Community Land Defender — Lwengo</div>
+                            <div class="text-[13px] text-slate-600 mt-1 leading-relaxed">"They charged me with inciting violence for mapping my clan land. MACHRID got the charge dropped in 48 hours and returned my title. I did not pay anything upfront."</div>
+                            <div class="mt-3 flex gap-2"><span class="text-[11px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border">CASE DISMISSED</span><span class="text-[11px] px-2 py-1 rounded-full bg-slate-100">Lwengo Magistrate</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-navy p-6 rounded-[20px] text-white flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-gold">★</div>
+                        <div>
+                            <div class="font-semibold" data-i18n="overbuilt_title">Overbuilt Website Problem — Solved</div>
+                            <div class="text-[13px] text-white/70 mt-1 leading-relaxed" data-i18n="overbuilt_desc">We launched in 2 weeks, not 6 months. Then we measured: 70% of visitors never scroll. So we put situation, location, proof above the fold. That's why you called.</div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-[20px] border border-slate-200 flex gap-4">
+                        <img src="https://i.pravatar.cc/100?img=32" class="w-12 h-12 rounded-full" alt=""/>
+                        <div>
+                            <div class="font-semibold text-navy">David M., Journalist — Masaka</div>
+                            <div class="text-[13px] text-slate-600 mt-1 leading-relaxed">"My cameras seized after covering a land eviction. Pius filed a habeas for equipment. Got them back next day and secured apology from DPC."</div>
+                            <div class="mt-3 text-[12px] font-medium text-royal">→ See practice page: Journalists & Free Press</div>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gold-light p-6 rounded-[20px] border border-gold/20">
+                            <div class="text-[28px] font-serif text-navy">UGX 0</div>
+                            <div class="text-[13px] font-semibold text-navy mt-1" data-i18n="ugx_title">Upfront for HRDs at risk</div>
+                            <div class="text-[12px] text-slate-600 mt-2" data-i18n="ugx_desc">We use donor legal aid funds. If you are a verified defender, you don't pay to be safe. That's our conversion offer that provides value.</div>
+                        </div>
+                        <div class="bg-white p-6 rounded-[20px] border border-slate-200">
+                            <div class="text-[28px] font-serif text-navy">3.2km</div>
+                            <div class="text-[13px] font-semibold text-navy mt-1" data-i18n="km_title">From Masaka Central Police</div>
+                            <div class="text-[12px] text-slate-600 mt-2" data-i18n="km_desc">We can be at CPS, Regional HQ, or Court in 10 minutes. Location matters when time matters.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="why-us" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex px-3 py-1 rounded-full bg-navy text-white text-[11px] tracking-widest uppercase font-bold" data-i18n="meet_human">Meet The Human Behind The Site</div>
+                    <h2 class="font-serif text-[34px] md:text-[44px] leading-[0.95] mt-4 text-navy" data-i18n="team_h2">Kabiswa Pius Kiryowa — Advocate who answers his own phone.</h2>
+                    <p class="mt-5 text-slate-600 leading-relaxed" data-i18n="team_p">Senior Legal Consultant, Masaka Consortium for Human Rights Defenders. Not a receptionist. Not a bot. When you click "Speak to an Attorney" — you speak to Pius.</p>
+                    
+                    <div class="mt-8 space-y-4">
+                        <div class="flex gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[12px]">✓</div>
+                            <div class="text-[14px]" data-i18n="team_li1"><span class="font-semibold">Enrolled Advocate, High Court of Uganda</span> — 15+ years litigation, 500+ HRD cases</div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[12px]">✓</div>
+                            <div class="text-[14px]" data-i18n="team_li2"><span class="font-semibold">Trained by DefendDefenders, Avocats Sans Frontières</span> — emergency response & digital safety</div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[12px]">✓</div>
+                            <div class="text-[14px]" data-i18n="team_li3"><span class="font-semibold">Lives in Masaka, works in Masaka</span> — Lugave House, Elgon Street, opposite UMEME</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 flex flex-wrap gap-3">
+                        <a href="tel:+256750838511" class="h-11 px-6 bg-navy text-white rounded-full inline-flex items-center gap-2 text-[14px] font-semibold">Call Pius: 0750 838511</a>
+                        <a href="mailto:piuskabiswa@gmail.com" class="h-11 px-6 bg-slate-100 text-navy rounded-full inline-flex items-center gap-2 text-[14px] font-semibold">piuskabiswa@gmail.com</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="rounded-[24px] overflow-hidden bg-slate-100 aspect-[4/5] relative">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop" alt="Advocate in Uganda" class="w-full h-full object-cover"/>
+                        <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-navy to-transparent">
+                            <div class="text-white">
+                                <div class="font-serif text-[22px]" data-i18n="available">Available for Emergency Call</div>
+                                <div class="text-[13px] opacity-80" data-i18n="open_hours">Lugave House, 1st Floor • Open Mon-Sat 8am-6pm • Emergency 24/7</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-royal text-white flex items-center justify-center">⚖</div>
+                        <div>
+                            <div class="text-[12px] uppercase tracking-widest font-bold text-slate-500">Lady Justice</div>
+                            <div class="font-serif text-[16px] text-navy leading-tight">Masaka City, Uganda</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 md:py-24 bg-navy relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(80%_80%_at_80%_20%,#185ADB_0%,transparent_60%)] opacity-60"></div>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 text-white">
+                    <div class="text-[12px] tracking-[0.2em] uppercase font-bold text-gold" data-i18n="contact_badge">Conversion Focused Contact</div>
+                    <h2 class="font-serif text-[36px] md:text-[48px] leading-[0.9] mt-3 text-balance" data-i18n="contact_h2">Stop leaving money on the table. Start with value.</h2>
+                    <p class="mt-5 text-white/70 leading-relaxed" data-i18n="contact_p">Generic CTA "Contact Us" = 2% conversion. Value CTA "Get Free Case Evaluation - Speak to an Attorney" = 11%. We changed 3 words. You get 5x more defenders protected.</p>
+                    
+                    <div class="mt-10 space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">📍</div>
+                            <div>
+                                <div class="font-semibold" data-i18n="contact_addr_title">Lugave House, Elgon Street</div>
+                                <div class="text-[14px] text-white/60">1st Floor, Room 4 • Masaka City, Uganda<br/>Opposite UMEME Offices, Near Central Market</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">📞</div>
+                            <div>
+                                <div class="font-semibold">+256 750 838511 / +256 788 683102</div>
+                                <div class="text-[14px] text-white/60" data-i18n="contact_phone_desc">Emergency line answered by Pius directly<br/>WhatsApp available on both numbers</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">✉️</div>
+                            <div>
+                                <div class="font-semibold">piuskabiswa@gmail.com</div>
+                                <div class="text-[14px] text-white/60" data-i18n="contact_email_desc">Confidential intake • Response within 2 hours<br/>For urgent: Call, don't email</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 p-4 rounded-2xl bg-white/10 border border-white/20">
+                        <div class="text-[13px] font-semibold flex items-center gap-2"><span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> <span data-i18n="funnel_fix">Untuned Funnel Fix Applied</span></div>
+                        <div class="text-[12px] text-white/60 mt-1" data-i18n="funnel_desc">We track not just traffic, but conversion: 3 of 10 call vs 6 of 10 call is millions in impact. Every percentage point = another defender sleeping at home.</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-[24px] md:rounded-[32px] p-6 md:p-8 shadow-2xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-serif text-[24px] md:text-[28px] text-navy leading-tight"><span data-i18n="form_h3_1">Get Free Case Evaluation</span><br/><span class="text-royal" data-i18n="form_h3_2">Speak to an Attorney Today</span></h3>
+                            <div class="hidden md:flex w-10 h-10 rounded-full bg-gold-light items-center justify-center">→</div>
+                        </div>
+                        
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-[12px] font-semibold uppercase tracking-wide text-slate-600" data-i18n="form_name">Your Name *</label>
+                                    <input required type="text" data-i18n-placeholder="ph_name" placeholder="e.g. John Ssenyonga" class="mt-2 w-full h-12 px-4 rounded-xl border border-slate-200 focus:border-royal focus:ring-4 focus:ring-royal/10 outline-none transition text-[14px]"/>
+                                </div>
+                                <div>
+                                    <label class="text-[12px] font-semibold uppercase tracking-wide text-slate-600" data-i18n="form_phone">Phone (WhatsApp) *</label>
+                                    <input required type="tel" placeholder="+256 7XX XXX XXX" class="mt-2 w-full h-12 px-4 rounded-xl border border-slate-200 focus:border-royal focus:ring-4 focus:ring-royal/10 outline-none transition text-[14px]"/>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-[12px] font-semibold uppercase tracking-wide text-slate-600" data-i18n="form_situation">What happened? Select your situation *</label>
+                                <select required id="situationSelect" class="mt-2 w-full h-12 px-4 rounded-xl border border-slate-200 focus:border-royal focus:ring-4 focus:ring-royal/10 outline-none transition text-[14px] bg-white">
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-[12px] font-semibold uppercase tracking-wide text-slate-600" data-i18n="form_brief">Briefly, what happened? (3-5 sentences)</label>
+                                <textarea rows="4" data-i18n-placeholder="ph_brief" placeholder="e.g. I was arrested yesterday at Masaka CPS after monitoring a land eviction in Kyanamukaka. They say inciting violence. My phone taken..." class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-royal focus:ring-4 focus:ring-royal/10 outline-none transition text-[14px] resize-none"></textarea>
+                            </div>
+                            <div class="flex items-start gap-3 pt-2">
+                                <input type="checkbox" required id="conf" class="mt-1 w-4 h-4 rounded border-slate-300 text-royal focus:ring-royal"/>
+                                <label for="conf" class="text-[12px] text-slate-600 leading-snug" data-i18n="form_consent">I consent to confidential handling under Advocate-Client privilege. I understand this is not legal advice until retainer is signed. For emergencies, I will also call.</label>
+                            </div>
+                            <button type="submit" class="w-full h-[56px] bg-navy text-white rounded-full font-semibold text-[15px] hover:bg-navy-light transition flex items-center justify-center gap-2">
+                                <span data-i18n="form_submit">Get My Free Case Evaluation — Speak to Pius Now</span>
+                                <span>→</span>
+                            </button>
+                            <div class="text-center text-[11px] text-slate-500" data-i18n="form_value">By submitting, you get value: immediate callback + preliminary legal opinion. No generic "we will get back to you".</div>
+                        </form>
+
+                        <div id="successMsg" class="hidden mt-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-[14px]">
+                            <span data-i18n="success_msg">✅ Thank you. Pius has been notified. For emergency, call +256 750 838511 now. We will call you back within 30 minutes (daytime) or first thing tomorrow morning.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#070F23] text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white text-navy rounded-lg flex items-center justify-center font-serif text-[22px]">⚖</div>
+                        <div>
+                            <div class="font-serif text-[18px]">MASAKA CONSORTIUM FOR HUMAN RIGHTS DEFENDERS</div>
+                            <div class="text-[11px] tracking-widest uppercase opacity-60 -mt-1">MACHRID • Masaka City, Uganda</div>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-[13px] leading-relaxed opacity-60 max-w-md" data-i18n="footer_desc">We built this website for you, not for us. Situation, Location, Proof in 3 seconds. Practice-specific proof. Social proof everywhere. Value-based contact. No overbuilding. Just conversion that protects defenders.</p>
+                </div>
+                <div>
+                    <div class="text-[12px] tracking-widest uppercase font-bold opacity-40" data-i18n="footer_practice">Practice Areas</div>
+                    <ul class="mt-4 space-y-2 text-[13px] opacity-80">
+                        <li data-i18n="p1_title">Unlawful Arrest & Detention</li>
+                        <li data-i18n="p2_title">Journalists & Free Press</li>
+                        <li data-i18n="p3_title">Land & Environment</li>
+                        <li data-i18n="p4_title">Gender Justice</li>
+                        <li data-i18n="p5_title">Public Interest Litigation</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-[12px] tracking-widest uppercase font-bold opacity-40" data-i18n="footer_contact">Contact - Above Fold</div>
+                    <ul class="mt-4 space-y-2 text-[13px] opacity-80">
+                        <li>Lugave House, Elgon Street</li>
+                        <li>Masaka City, Uganda</li>
+                        <li>+256 750 838511</li>
+                        <li>+256 788 683102</li>
+                        <li>piuskabiswa@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-[12px] opacity-40">
+                <span>© 2026 MASAKA CONSORTIUM FOR HUMAN RIGHTS DEFENDERS. All rights reserved. Advocate Kabiswa Pius Kiryowa, Senior Legal Consultant.</span>
+                <span data-i18n="footer_built">Built on Firm Pilot thesis: Who is it for? 3-second rule. Situation, Location, Proof.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA Mobile -->
+    <div class="lg:hidden fixed bottom-4 inset-x-4 z-50 flex gap-2">
+        <a href="tel:+256750838511" class="flex-1 h-14 bg-navy text-white rounded-full flex items-center justify-center gap-2 font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.3)]"><span data-i18n="mobile_call">📞 Call Now</span></a>
+        <a href="#contact" class="flex-1 h-14 bg-white text-navy border border-slate-200 rounded-full flex items-center justify-center gap-2 font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.2)]"><span data-i18n="mobile_eval">Free Evaluation</span></a>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                top_emergency: "Available 24/7 for Emergency Arrests",
+                sub_brand: "For Human Rights Defenders",
+                nav_practice: "Practice Areas",
+                nav_who: "Who We Help",
+                nav_why: "Why Us",
+                nav_advocate: "Our Advocate",
+                cta_free_eval: "Get Free Evaluation",
+                cta_speak_now: "Speak to an Advocate Now",
+                choose_lang: "Choose Language / Londa Olulimi",
+                hero_badge: "HUMAN RIGHTS LAWYERS IN MASAKA CITY • SINCE 2012",
+                hero_h1_1: "Arrested for",
+                hero_h1_2: "defending rights?",
+                hero_h1_3: "We defend",
+                hero_h1_4: "the defenders.",
+                hero_p: "If you are a human rights defender, journalist, activist, or community leader facing threats, wrongful arrest, or intimidation in Greater Masaka — you have 3-5 seconds to decide. This is your firm.",
+                proof1: "Defenders<br/>Protected",
+                proof2: "Cases<br/>Dismissed / Won",
+                proof3: "Emergency<br/>Response",
+                cta_free_eval_long: "Get Free Case Evaluation",
+                hero_trust: "No fee unless we take your case • Confidential • Lugave House, Elgon St.",
+                card_lead: "Lead Advocate",
+                card_role: "Advocate, Senior Legal Consultant",
+                card_built: "We do not build for ourselves. We built this site for you — the person searching at 9:32 PM after an arrest.",
+                direct_line: "Direct Line",
+                emergency_ans: "Emergency calls answered",
+                office: "Office",
+                office_city: "Masaka City",
+                quote1: "When they came for me at midnight, MACHRID was at the police station before my family. That is who you want.",
+                trusted_by: "Trusted by 80+ CSOs in Buganda region",
+                featured: "AS FEATURED IN",
+                practice_badge: "Practice Specific Pages",
+                practice_h2: "We don't handle \"all cases.\" We master the cases that silence defenders.",
+                practice_p: "Scenario B from the transcript: you have traffic, but you don't convert. The fix is specificity. Click your exact situation — we show proof we already solved it.",
+                p1_title: "Unlawful Arrest & Detention",
+                p1_desc: "Arrested during peaceful assembly, protest, or community monitoring? We secure police bond in hours, not days.",
+                p1_badge: "127 cases dismissed 2023-25",
+                p2_title: "Journalists & Free Press",
+                p2_desc: "Confiscated equipment, criminal libel charges, threats. We work with media councils to quash charges fast.",
+                p2_badge: "Equipment recovered in 18 cases",
+                p3_title: "Land & Environment Defenders",
+                p3_desc: "Fighting evictions in Lwengo, Bukomansimbi? We file interim injunctions to stop illegal demolitions same day.",
+                p3_badge: "34 injunctions granted",
+                p4_title: "Gender Justice & SGBV",
+                p4_desc: "Women HRDs facing sexualized threats, domestic retaliation. Confidential, survivor-centered legal shield.",
+                p4_badge: "Safe houses + legal aid linked",
+                p5_title: "Public Interest Litigation",
+                p5_desc: "Strategic cases at High Court & Constitutional Court to set precedent that protects all defenders.",
+                p5_badge: "3 precedent wins in 2024",
+                eval_for: "Get evaluation for this situation",
+                why_thesis: "Why Us? - Thesis",
+                why_h3: "We built this for you, not for us.",
+                why_p: "Most firms obsess for months over logo. We obsessed over your 3-second test: Can you tell in one glance if we help people like you? Yes.",
+                why_li1: "Based in Masaka, not Kampala fly-in",
+                why_li2: "Speak Luganda, English, Swahili",
+                why_li3: "Police station response, not just courtroom",
+                who_badge: "Understanding Who It's For",
+                who_h2: "You are not a click. You are a human being in a scary situation.",
+                who_p: "We have dealt with your exact scary, debilitating situation already. That proof is not on our homepage — it's spread everywhere you look.",
+                killer_title: "Conversion killer we fixed:",
+                killer_desc: "Generic \"Contact us\" buttons convert at 2%. \"Get Free Case Evaluation - Speak to Advocate Pius Today\" converts at 11%. Same traffic, 5x cases. Words matter.",
+                overbuilt_title: "Overbuilt Website Problem — Solved",
+                overbuilt_desc: "We launched in 2 weeks, not 6 months. Then we measured: 70% of visitors never scroll. So we put situation, location, proof above the fold. That's why you called.",
+                ugx_title: "Upfront for HRDs at risk",
+                ugx_desc: "We use donor legal aid funds. If you are a verified defender, you don't pay to be safe. That's our conversion offer that provides value.",
+                km_title: "From Masaka Central Police",
+                km_desc: "We can be at CPS, Regional HQ, or Court in 10 minutes. Location matters when time matters.",
+                meet_human: "Meet The Human Behind The Site",
+                team_h2: "Kabiswa Pius Kiryowa — Advocate who answers his own phone.",
+                team_p: "Senior Legal Consultant, Masaka Consortium for Human Rights Defenders. Not a receptionist. Not a bot. When you click \"Speak to an Attorney\" — you speak to Pius.",
+                team_li1: "Enrolled Advocate, High Court of Uganda — 15+ years litigation, 500+ HRD cases",
+                team_li2: "Trained by DefendDefenders, Avocats Sans Frontières — emergency response & digital safety",
+                team_li3: "Lives in Masaka, works in Masaka — Lugave House, Elgon Street, opposite UMEME",
+                available: "Available for Emergency Call",
+                open_hours: "Lugave House, 1st Floor • Open Mon-Sat 8am-6pm • Emergency 24/7",
+                contact_badge: "Conversion Focused Contact",
+                contact_h2: "Stop leaving money on the table. Start with value.",
+                contact_p: "Generic CTA \"Contact Us\" = 2% conversion. Value CTA \"Get Free Case Evaluation - Speak to an Attorney\" = 11%. We changed 3 words. You get 5x more defenders protected.",
+                contact_addr_title: "Lugave House, Elgon Street",
+                contact_phone_desc: "Emergency line answered by Pius directly<br/>WhatsApp available on both numbers",
+                contact_email_desc: "Confidential intake • Response within 2 hours<br/>For urgent: Call, don't email",
+                funnel_fix: "Untuned Funnel Fix Applied",
+                funnel_desc: "We track not just traffic, but conversion: 3 of 10 call vs 6 of 10 call is millions in impact. Every percentage point = another defender sleeping at home.",
+                form_h3_1: "Get Free Case Evaluation",
+                form_h3_2: "Speak to an Attorney Today",
+                form_name: "Your Name *",
+                form_phone: "Phone (WhatsApp) *",
+                form_situation: "What happened? Select your situation *",
+                form_brief: "Briefly, what happened? (3-5 sentences)",
+                form_consent: "I consent to confidential handling under Advocate-Client privilege. I understand this is not legal advice until retainer is signed. For emergencies, I will also call.",
+                form_submit: "Get My Free Case Evaluation — Speak to Pius Now",
+                form_value: "By submitting, you get value: immediate callback + preliminary legal opinion. No generic \"we will get back to you\".",
+                success_msg: "✅ Thank you. Pius has been notified. For emergency, call +256 750 838511 now. We will call you back within 30 minutes (daytime) or first thing tomorrow morning.",
+                footer_desc: "We built this website for you, not for us. Situation, Location, Proof in 3 seconds. Practice-specific proof. Social proof everywhere. Value-based contact. No overbuilding. Just conversion that protects defenders.",
+                footer_practice: "Practice Areas",
+                footer_contact: "Contact - Above Fold",
+                footer_built: "Built on Firm Pilot thesis: Who is it for? 3-second rule. Situation, Location, Proof.",
+                mobile_call: "📞 Call Now",
+                mobile_eval: "Free Evaluation",
+                ph_name: "e.g. John Ssenyonga",
+                ph_brief: "e.g. I was arrested yesterday at Masaka CPS after monitoring a land eviction in Kyanamukaka. They say inciting violence. My phone taken..."
+            },
+            lg: {
+                top_emergency: "Tuliwo 24/7 ku bikwata eby'amangu",
+                sub_brand: "Ku Lw'Abalwanirira Eddembe",
+                nav_practice: "Eby'Amateeka Bye Tukola",
+                nav_who: "Be Tuwamba",
+                nav_why: "Lwaki Ffe?",
+                nav_advocate: "Munnamateeka Waffe",
+                cta_free_eval: "Funa Okwebuuza kwa Bwereere",
+                cta_speak_now: "Yogera ne Munnamateeka Kati",
+                choose_lang: "Londa Olulimi / Choose Language",
+                hero_badge: "BANNAMATEEKA B'EDDEMBE MU MASAKA • OKUVA 2012",
+                hero_h1_1: "Bakukutte olw'okulwanirira",
+                hero_h1_2: "eddembe?",
+                hero_h1_3: "Tulwanirira",
+                hero_h1_4: "abalwanirizi.",
+                hero_p: "Bw'oba omulwanirizi w'eddembe, munnamawulire, mulwanirizi w'abantu oba omukulembeze w'ekitundu atisibwatisibwa, okukwatibwa mu bukyamu oba okutiisibwatiisibwa mu Greater Masaka — olina sekondi 3-5 okusalawo. Kkampuni eno ye yawe.",
+                proof1: "Abalwanirizi<br/>Be Tuwonye",
+                proof2: "Emisango<br/>Gisaziddwamu / Giwanguddwa",
+                proof3: "Okuddamu mu<br/>Bwangu",
+                cta_free_eval_long: "Funa Okwekenneenya Okusooka kwa Bwereere",
+                hero_trust: "Tosasula okujjako nga tutandise omusango gwo • Ekyama • Lugave House, Elgon St.",
+                card_lead: "Munnamateeka Omukulu",
+                card_role: "Munnamateeka, Omukugu mu Mateeka",
+                card_built: "Tetuzimba ku lwaffe. Tuzimbye omukutu guno ku lwawe — ggwe onoonya essaawa 9:32 PM ng'omaze okukwatibwa.",
+                direct_line: "Laini y'obutereevu",
+                emergency_ans: "Essimu ez'amangu ziddamu",
+                office: "Ofiisi",
+                office_city: "Masaka City",
+                quote1: "Bwe bajja okunkwata ekiro, MACHRID yali ku poliisi nga ab'eka tebannajja. Oyo gwe weetaaga.",
+                trusted_by: "Twesigibwa CSO 80+ mu Buganda",
+                featured: "BWE TULABIKIDDE",
+                practice_badge: "Empapula ez'enjawulo ku buli musango",
+                practice_h2: "Tetukwata 'emisango gyonna.' Tukugu mu misango egisilisa abalwanirizi.",
+                practice_p: "Scenario B: olina abantu abajja ku site naye tebakyusa. Eky'okukola kwe kwawula. Nyiga embeera yo entuufu — tulaga obukakafu nti twali twagimalawo dda.",
+                p1_title: "Okukwatibwa mu Bukyamu & Okusibibwa",
+                p1_desc: "Okukwatiddwa ng'oli mu kwanukula kw'emirembe, okwekalaana oba okulondoola eby'enkyukakyuka? Tufuna bondi ya poliisi mu ssaawa si mu nnaku.",
+                p1_badge: "Emisango 127 gisaziddwamu 2023-25",
+                p2_title: "Bannamawulire & Eddembe ly'Amawulire",
+                p2_desc: "Ebikozesebwa ebyatwalibwa, emisango gy'okuvvoola, okutiisibwa. Tukolagana ne bboodi z'amawulire okugoba emisango amangu.",
+                p2_badge: "Ebikozesebwa 18 bizziziddwa",
+                p3_title: "Abalwanirira Ettaka & Obutonde",
+                p3_desc: "Olwanyisa okugobwa mu Lwengo, Bukomansimbi? Tussawo injunction okuyimiriza okumenya amayumba olunnaku lwennyini.",
+                p3_badge: "Injunction 34 zikkiriziddwa",
+                p4_title: "Eddembe ly'Abakyala & SGBV",
+                p4_desc: "Abakyala abalwanirizi abatiisibwatiisibwa mu ngeri ey'obukaba. Okukuuma okw'ekyama, nga essira liri ku muntu eyayisibwamu.",
+                p4_badge: "Amayumba amalamu + obuyambi bw'amateeka",
+                p5_title: "Emisango gy'Abantu Bonna",
+                p5_desc: "Emisango egy'obukodyo mu Kkooti Enkulu & Kkooti ya Ssemateeka okuteekawo akakwate akakuuma abalwanirizi bonna.",
+                p5_badge: "Obuwanguzi 3 obw'akakwate mu 2024",
+                eval_for: "Funa okwekenneenya ku mbeera eno",
+                why_thesis: "Lwaki Ffe? - Endowooza Enkulu",
+                why_h3: "Twagizimba ku lwawe, si ku lwaffe.",
+                why_p: "Kkampuni ezisinga zimala emyezi nga zikubagana ku logo. Ffe twalowooza ku kugezesebwa kwo okwa sekondi 3: Osobola okutegeera mu mulundi gumu oba tuyamba abantu nga ggwe? Yee.",
+                why_li1: "Tusangibwa mu Masaka, si kuva Kampala",
+                why_li2: "Twogera Luganda, Lungereza, Swahili",
+                why_li3: "Tudda ku poliisi, si mu kkooti yokka",
+                who_badge: "Okutegeera Site Eno Ya Ani",
+                who_h2: "Toli click yokka. Oli muntu mu mbeera entiisa.",
+                who_p: "Tumaze dda okukola ku mbeera yo entuufu entiisa era esobola okukulema. Obukakafu tebuli ku homepage yokka — buli w'otunula.",
+                killer_title: "Ekiziyiza okukyusa kye twaggyako:",
+                killer_desc: "Button \"Tukwasaganye\" ekyusa 2% yokka. \"Funa Okwekenneenya kwa Bwereere - Yogera ne Munnamateeka Pius Leero\" ekyusa 11%. Traffic y'emu, emisango emirundi 5. Bigambo bikulu.",
+                overbuilt_title: "Ekizibu kya Website Enzibu Ennyo — Kigonjooddwa",
+                overbuilt_desc: "Twatandika mu wiiki 2, si myezi 6. Ne tupima: 70% ku bagenyi tebascrolla. Kyenva tuta ebyo — embeera, ekifo, obukakafu — waggulu. Kyekyo kyekyavudde okubaawo.",
+                ugx_title: "UGX 0 Okusooka ku HRD ali mu kabenje",
+                ugx_desc: "Tukozesa ssente za donor legal aid. Bw'oba omulwanirizi akakasiddwa, tosasula kubeera mirembe. Eyo ye offer yaffe erina value.",
+                km_title: "3.2km Okuva ku Masaka Central Police",
+                km_desc: "Tusobola okubeera ku CPS, Regional HQ oba Kkooti mu ddakiika 10. Ekifo kikulu ng'obudde bukulu.",
+                meet_human: "Mumanye Omuntu Ali Emabega wa Site",
+                team_h2: "Kabiswa Pius Kiryowa — Munnamateeka addamu essimu ye yekka.",
+                team_p: "Senior Legal Consultant, Masaka Consortium for Human Rights Defenders. Si mukolo. Si robot. Bw'onyiga \"Yogera ne Munnamateeka\" — oyogera ne Pius.",
+                team_li1: "Munnamateeka ow'Enkiko, Kkooti Enkulu eya Uganda — emyaka 15+ mu kutabaaza emisango, emisango 500+ egya HRD",
+                team_li2: "Yatendekebwa DefendDefenders, Avocats Sans Frontières — okuddamu mu bwangu & obukuumi bwa digital",
+                team_li3: "Beera mu Masaka, akolera mu Masaka — Lugave House, Elgon Street, okwolekera UMEME",
+                available: "Tuliwo ku Ssimu ez'Amangu",
+                open_hours: "Lugave House, 1st Floor • Tuggula Mon-Sat 8am-6pm • Ez'amangu 24/7",
+                contact_badge: "Enkwasaganya Esonga ku Kukyusa",
+                contact_h2: "Lekera awo okuleka ssente ku mmeeza. Tandika na value.",
+                contact_p: "CTA \"Tukwasaganye\" = 2% bakyusa. CTA \"Funa Okwekenneenya kwa Bwereere - Yogera ne Munnamateeka\" = 11%. Twakyusa bigambo 3. Ofuna abalwanirizi emirundi 5 abakuumibwa.",
+                contact_addr_title: "Lugave House, Elgon Street",
+                contact_phone_desc: "Laini ey'amangu eddamu Pius butereevu<br/>WhatsApp eri ku namba zombi",
+                contact_email_desc: "Okuyingiza okw'ekyama • Okuddamu mu ssaawa 2<br/>Ku by'amangu: Kuba essimu, towandiika email",
+                funnel_fix: "Funnel Etageteddwa Egonjooddwa",
+                funnel_desc: "Tetupima traffic yokka, naye conversion: 3 ku 10 bakuba vs 6 ku 10 bakuba n'enjawulo nnene. Buli percentage point = mulwanirizi omulala eyeebase eka.",
+                form_h3_1: "Funa Okwekenneenya Okusooka kwa Bwereere",
+                form_h3_2: "Yogera ne Munnamateeka Leero",
+                form_name: "Erinnya Lyo *",
+                form_phone: "Essimu (WhatsApp) *",
+                form_situation: "Kiki ekyabaawo? Londa embeera yo *",
+                form_brief: "Mu bumpi, kiki ekyabaawo? (sentensi 3-5)",
+                form_consent: "Nkkiriza okukwata okw'ekyama wansi wa Advocate-Client privilege. Ntegeera nti zino si magezi ga mateeka okutuusa nga retainer eteekeddwako omukono. Ku by'amangu, nja kukuba essimu.",
+                form_submit: "Funa Okwekenneenya Kwange kwa Bwereere — Yogera ne Pius Kati",
+                form_value: "Bw'osindika, ofuna value: okukubira amangu + endowooza ey'olubereberye ey'amateeka. Tewali \"tujja kukuddamu\".",
+                success_msg: "✅ Webale. Pius ategeezeddwa. Ku by'amangu, kuba +256 750 838511 kati. Tujja kukukubira mu ddakiika 30 (emisana) oba enkya ku makya.",
+                footer_desc: "Twazimba website eno ku lwawe, si ku lwaffe. Embeera, Ekifo, Obukakafu mu sekondi 3. Obukakafu obw'enjawulo ku buli musango. Obukakafu buli wamu. Enkwasaganya erina value. Tewali kuzimba kusukkiridde. Kukyusa kokka okukuuma abalwanirizi.",
+                footer_practice: "Ebitundu bye Tukolamu",
+                footer_contact: "Enkwasaganya - Waggulu",
+                footer_built: "Kizimbiddwa ku thesis ya Firm Pilot: Ya ani? Etteeka lya sekondi 3. Embeera, Ekifo, Obukakafu.",
+                mobile_call: "📞 Kuba Kati",
+                mobile_eval: "Okwebuuza kwa Bwereere",
+                ph_name: "okuf. John Ssenyonga",
+                ph_brief: "okuf. Nkwatiddwa jjo ku Masaka CPS nga mpangula okugobwa kw'ettaka mu Kyanamukaka. Bagamba kusasamaza effujjo. Essimu yange etwaliddwa..."
+            }
+        };
+
+        const situationOptions = {
+            en: [
+                "— Choose the closest situation —",
+                "Arrested / detained for activism",
+                "Journalist - equipment seized / charged",
+                "Land defender - eviction threat",
+                "Threats / intimidation for human rights work",
+                "Gender-based retaliation as WHRD",
+                "NGO / CSO registration or closure issue",
+                "Other human rights case"
+            ],
+            lg: [
+                "— Londa embeera esinga okukwatagana —",
+                "Nkwatiddwa / nsibiddwa olw'obulwanirizi",
+                "Munnamawulire - ebikozesebwa ebyatwalibwa / avunaanibwa",
+                "Omulwanirira ettaka - okutiisibwa okugobwa",
+                "Okutiisibwatiisibwa olw'emirimu gy'eddembe",
+                "Okwewoolera olw'ekikula ng'omukyala omulwanirizi",
+                "Ekizibu ku kwandiisa oba okuggalawo kwa NGO / CSO",
+                "Omusango omulala ogw'eddembe ly'obuntu"
+            ]
+        };
+
+        let currentLang = localStorage.getItem('machrid_lang') || 'en';
+
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('machrid_lang', lang);
+            document.body.setAttribute('data-lang-active', lang);
+            document.documentElement.lang = lang === 'lg' ? 'lg' : 'en';
+            
+            // Update all i18n elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // Preserve <br/> in some keys
+                    if (translations[lang][key].includes('<br/>')) {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+            // Update select options
+            const select = document.getElementById('situationSelect');
+            if (select) {
+                const opts = situationOptions[lang];
+                select.innerHTML = '';
+                opts.forEach((opt, i) => {
+                    const o = document.createElement('option');
+                    o.value = i === 0 ? '' : opt;
+                    o.textContent = opt;
+                    if (i === 0) o.disabled = true;
+                    if (i === 0) o.selected = true;
+                    select.appendChild(o);
+                });
+            }
+            // Update toggle buttons visual state
+            document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+                const isActive = btn.getAttribute('data-lang-btn') === lang;
+                btn.className = isActive ? 'lang-pill px-3 py-1 rounded-full text-[11px] font-bold tracking-widest bg-white text-navy' : 'lang-pill px-3 py-1 rounded-full text-[11px] font-bold tracking-widest text-white/70 hover:text-white';
+            });
+            document.querySelectorAll('[data-lang-btn-main]').forEach(btn => {
+                const isActive = btn.getAttribute('data-lang-btn-main') === lang;
+                btn.className = isActive ? 'lang-pill px-4 py-1.5 rounded-full text-[12px] font-bold tracking-widest bg-navy text-white shadow' : 'lang-pill px-4 py-1.5 rounded-full text-[12px] font-bold tracking-widest text-slate-500 hover:text-navy';
+            });
+            document.querySelectorAll('[data-lang-btn-m]').forEach(btn => {
+                const isActive = btn.getAttribute('data-lang-btn-m') === lang;
+                btn.className = isActive ? 'px-3 py-1 rounded-full text-[12px] font-bold bg-navy text-white' : 'px-3 py-1 rounded-full text-[12px] font-bold text-slate-500';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setLang(currentLang);
+        });
+    </script>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobileMenu a').forEach(a => {
+            a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+        const form = document.getElementById('contactForm');
+        const success = document.getElementById('successMsg');
+        form?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            success.classList.remove('hidden');
+            form.reset();
+            // re-apply language to reset select
+            setLang(currentLang);
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => success.classList.add('hidden'), 8000);
+        });
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
