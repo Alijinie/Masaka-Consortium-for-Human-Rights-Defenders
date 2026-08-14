@@ -216,56 +216,70 @@
                 </div>
 
                 <!-- Hero Right Column: Advocate Profile Card -->
-                <div class="lg:col-span-5 relative mt-4 lg:mt-0">
-                    <div class="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-2xl border border-white/20">
-                        <div class="flex items-start justify-between mb-5 gap-3">
-                            <div>
-                                <div class="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-bold text-royal" data-i18n="card_lead">Lead Advocate</div>
-                                <div class="font-serif text-xl sm:text-2xl font-bold leading-tight mt-1 text-navy">Kabiswa Pius Kiryowa</div>
-                                <div class="text-xs sm:text-[13px] text-slate-500 mt-0.5" data-i18n="card_role">Advocate, Senior Legal Consultant</div>
-                            </div>
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gold-light flex items-center justify-center text-2xl sm:text-3xl flex-shrink-0 shadow-inner">⚖️</div>
-                        </div>
-                        
-                        <div class="space-y-3">
-                            <div class="flex gap-2.5 p-3 rounded-xl bg-royal-light/70 border border-royal/10 text-xs sm:text-[13px] text-slate-700 leading-snug">
-                                <div class="w-5 h-5 rounded-full bg-royal text-white flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</div>
-                                <div data-i18n="card_built">Direct access to experienced counsel. No intermediaries or delay when every hour matters.</div>
-                            </div>
-                            
-                            <div class="grid grid-cols-2 gap-2.5">
-                                <button onclick="openContactModal('call')" class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 hover:bg-royal-light/50 border text-left transition group">
-                                    <div class="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-slate-500 group-hover:text-royal" data-i18n="direct_line">Direct Line</div>
-                                    <div class="font-bold text-navy text-xs sm:text-[14px] mt-0.5">+256 750 838511</div>
-                                    <div class="text-[11px] text-emerald-600 font-medium mt-0.5 flex items-center gap-1">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                                        <span data-i18n="emergency_ans">Tap to call</span>
-                                    </div>
-                                </button>
-                                
-                                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border text-left">
-                                    <div class="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-slate-500" data-i18n="office">Chambers</div>
-                                    <div class="font-bold text-navy text-xs sm:text-[14px] mt-0.5" data-i18n="office_city">Masaka City</div>
-                                    <div class="text-[11px] text-slate-500 mt-0.5 truncate">Lugave Hse, Elgon St</div>
-                                </div>
-                            </div>
-                        </div>
+<div class="lg:col-span-5 relative mt-4 lg:mt-0">
+    <div class="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-2xl border border-white/20">
+        <div class="flex items-start justify-between mb-5 gap-3">
+            <div>
+                <div class="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-bold text-royal" data-i18n="card_lead">Lead Advocate</div>
+                <div class="font-serif text-xl sm:text-2xl font-bold leading-tight mt-1 text-navy">Kabiswa Pius Kiryowa</div>
+                <div class="text-xs sm:text-[13px] text-slate-500 mt-0.5" data-i18n="card_role">Advocate, Senior Legal Consultant</div>
+            </div>
 
-                        <!-- Testimonial Quote -->
-                        <div class="mt-4 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-navy text-white flex gap-3">
-                            <div class="text-gold text-xl font-serif">“</div>
-                            <div class="text-xs sm:text-[13px] leading-relaxed text-white/90" data-i18n="quote1">
-                                When I was unlawfully detained, the lawyer arrived at the police station immediately. That swift intervention made all the difference.
-                            </div>
-                        </div>
-
-                        <div class="mt-4 flex items-center justify-between pt-2 border-t border-slate-100 text-[11px] sm:text-xs text-slate-500">
-                            <span data-i18n="trusted_by">Trusted by 80+ CSOs in Greater Masaka</span>
-                            <span class="font-bold text-royal">MACHRID</span>
-                        </div>
-                    </div>
+            <!-- Advocate Profile Photo (Replace src with your image path) -->
+            <div class="relative flex-shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md bg-slate-100">
+                    <img 
+                        src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=300&auto=format&fit=crop" 
+                        alt="Advocate Kabiswa Pius Kiryowa" 
+                        class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
+                        onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Pius+Kiryowa&background=0A1931&color=C8A951&size=200&bold=true';"
+                    />
                 </div>
+                <!-- Mini Verified Scales Badge -->
+                <span class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-navy text-gold text-[11px] flex items-center justify-center border-2 border-white shadow-sm" title="Enrolled Advocate of High Court">
+                    ⚖️
+                </span>
+            </div>
+        </div>
+        
+        <div class="space-y-3">
+            <div class="flex gap-2.5 p-3 rounded-xl bg-royal-light/70 border border-royal/10 text-xs sm:text-[13px] text-slate-700 leading-snug">
+                <div class="w-5 h-5 rounded-full bg-royal text-white flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</div>
+                <div data-i18n="card_built">Direct access to experienced counsel. No intermediaries or delay when every hour matters.</div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-2.5">
+                <button onclick="openContactModal('call')" class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 hover:bg-royal-light/50 border text-left transition group">
+                    <div class="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-slate-500 group-hover:text-royal" data-i18n="direct_line">Direct Line</div>
+                    <div class="font-bold text-navy text-xs sm:text-[14px] mt-0.5">+256 750 838511</div>
+                    <div class="text-[11px] text-emerald-600 font-medium mt-0.5 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span data-i18n="emergency_ans">Tap to call</span>
+                    </div>
+                </button>
+                
+                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border text-left">
+                    <div class="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-slate-500" data-i18n="office">Chambers</div>
+                    <div class="font-bold text-navy text-xs sm:text-[14px] mt-0.5" data-i18n="office_city">Masaka City</div>
+                    <div class="text-[11px] text-slate-500 mt-0.5 truncate">Lugave Hse, Elgon St</div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Testimonial Quote -->
+        <div class="mt-4 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-navy text-white flex gap-3">
+            <div class="text-gold text-xl font-serif">“</div>
+            <div class="text-xs sm:text-[13px] leading-relaxed text-white/90" data-i18n="quote1">
+                When I was unlawfully detained, the lawyer arrived at the police station immediately. That swift intervention made all the difference.
+            </div>
+        </div>
+
+        <div class="mt-4 flex items-center justify-between pt-2 border-t border-slate-100 text-[11px] sm:text-xs text-slate-500">
+            <span data-i18n="trusted_by">Trusted by 80+ CSOs in Greater Masaka</span>
+            <span class="font-bold text-royal">MACHRID</span>
+        </div>
+    </div>
+</div>
             </div>
         </div>
     </section>
