@@ -26,8 +26,8 @@
     <meta name="twitter:description" content="Empowering vulnerable communities through provision of quality legal services" />
     <meta name="twitter:image" content="https://alijinie.github.io/Masaka-Consortium-for-Human-Rights-Defenders/77.jpg" />
     
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A1931'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23C8A951'%3E%E2%9A%96%3C/text%3E%3C/svg%3E" />
-    <meta name="theme-color" content="#0A1931" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23050505'/%3E%3Crect x='8' y='8' width='84' height='84' rx='18' fill='none' stroke='%23C8A951' stroke-opacity='0.4'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23C8A951'%3E%E2%9A%96%3C/text%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#050505" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,26 +45,56 @@
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
+                        ink: '#050505',
+                        coal: '#0B0B0D',
+                        carbon: '#131316',
+                        smoke: '#1C1C21',
                         navy: '#0A1931',
                         'navy-light': '#13294B',
                         'navy-dark': '#060F1F',
-                        royal: '#185ADB',
+                        royal: '#4F7CFF',
                         'royal-light': '#E8F0FE',
                         gold: '#C8A951',
                         'gold-light': '#F9F3E3',
                         'gold-hover': '#b69742',
-                        paper: '#FFFCF8'
+                        paper: '#050505'
                     },
                     screens: {
                         'xs': '400px',
                     },
                     animation: {
                         'marquee': 'marquee 28s linear infinite',
+                        'float': 'floatY 7s ease-in-out infinite',
+                        'float-slow': 'floatY 11s ease-in-out infinite',
+                        'orb': 'orbDrift 14s ease-in-out infinite alternate',
+                        'fade-up': 'fadeUp .8s cubic-bezier(.16,1,.3,1) both',
+                        'pulse-dot': 'pulseDot 2s ease-in-out infinite',
+                        'shine': 'shine 2.8s linear infinite',
                     },
                     keyframes: {
                         marquee: {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-50%)' },
+                        },
+                        floatY: {
+                            '0%,100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-14px)' },
+                        },
+                        orbDrift: {
+                            '0%': { transform: 'translate(0,0) scale(1)' },
+                            '100%': { transform: 'translate(40px,-30px) scale(1.15)' },
+                        },
+                        fadeUp: {
+                            'from': { opacity: '0', transform: 'translateY(26px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseDot: {
+                            '0%,100%': { opacity: '1', boxShadow: '0 0 0 0 rgba(52,211,153,.6)' },
+                            '50%': { opacity: '.7', boxShadow: '0 0 0 7px rgba(52,211,153,0)' },
+                        },
+                        shine: {
+                            'from': { transform: 'translateX(-120%) skewX(-18deg)' },
+                            'to': { transform: 'translateX(240%) skewX(-18deg)' },
                         }
                     }
                 }
@@ -72,78 +102,94 @@
         }
     </script>
     <style>
+        /* ===== BLACK GLASSMORPHISM SYSTEM — mobile-first ===== */
+        :root { --gold:#C8A951; color-scheme: dark; }
+        html { background:#050505; }
+        body { background:#050505; overflow-x:hidden; }
         .text-balance { text-wrap: balance; }
-        .hero-gradient { background: radial-gradient(120% 120% at 0% 0%, #185ADB 0%, #0A1931 55%, #070F23 100%); }
-        .gold-gradient { background: linear-gradient(135deg, #C8A951 0%, #DFCA86 50%, #B8963D 100%); }
+        /* film-grain + vignette over black */
+        .hero-stage {
+            background:
+                radial-gradient(90% 70% at 15% 0%, rgba(200,169,81,.14), transparent 60%),
+                radial-gradient(80% 70% at 90% 10%, rgba(79,124,255,.16), transparent 60%),
+                radial-gradient(70% 60% at 50% 100%, rgba(16,185,129,.08), transparent 60%),
+                #050505;
+        }
         .noise::before {
             content: "";
             position: absolute;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
             pointer-events: none;
         }
-        .lang-pill { transition: all .2s cubic-bezier(0.4, 0, 0.2, 1); }
-        
-        /* Modal Transition and Scroll Lock */
-        body.modal-open {
-            overflow: hidden;
-            touch-action: none;
-        }
-        .modal-animate-enter {
-            animation: modalSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes modalSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px) scale(0.97);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        .hover-lift {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-2px);
-        }
-        /* ---- Modern polish additions ---- */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #F7F5F2; }
-        ::-webkit-scrollbar-thumb { background: #0A1931; border-radius: 8px; border: 2px solid #F7F5F2; }
-        ::-webkit-scrollbar-thumb:hover { background: #185ADB; }
-        #scrollProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 60;
-            background: linear-gradient(90deg, #C8A951, #185ADB); transition: width .1s linear; }
-        .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+        /* glass primitives */
+        .glass { background: rgba(255,255,255,.06); backdrop-filter: blur(22px) saturate(1.3); -webkit-backdrop-filter: blur(22px) saturate(1.3); border: 1px solid rgba(255,255,255,.12); }
+        .glass-deep { background: rgba(255,255,255,.04); backdrop-filter: blur(28px) saturate(1.4); -webkit-backdrop-filter: blur(28px) saturate(1.4); border: 1px solid rgba(255,255,255,.1); }
+        .glass-gold { background: linear-gradient(135deg, rgba(200,169,81,.16), rgba(255,255,255,.05)); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border: 1px solid rgba(200,169,81,.35); }
+        .glass-hover { transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .3s, box-shadow .35s, background .3s; }
+        .glass-hover:hover { transform: translateY(-5px); border-color: rgba(200,169,81,.5); box-shadow: 0 24px 60px -18px rgba(0,0,0,.8), 0 0 0 1px rgba(200,169,81,.15), 0 8px 40px -8px rgba(200,169,81,.25); }
+        .gold-gradient { background: linear-gradient(135deg, #E8D194 0%, #C8A951 45%, #8f6f26 100%); }
+        .gold-text { background: linear-gradient(120deg,#F3E3AC,#C8A951 55%,#8f6f26); -webkit-background-clip:text; background-clip:text; color:transparent; }
+        .grid-lines { background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 44px 44px; mask-image: radial-gradient(75% 70% at 50% 30%, black 40%, transparent 100%); }
+        /* buttons */
+        .btn-shine { position:relative; overflow:hidden; isolation:isolate; }
+        .btn-shine::after { content:""; position:absolute; top:0; bottom:0; width:45%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent); animation: shine 2.8s linear infinite; z-index:1; }
+        /* orbs */
+        .orb { position:absolute; border-radius:9999px; filter: blur(70px); pointer-events:none; will-change: transform; }
+        /* reveal on scroll — staggered mobile-first */
+        .reveal { opacity: 0; transform: translateY(26px) scale(.985); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); transition-delay: var(--d, 0ms); }
         .reveal.visible { opacity: 1; transform: none; }
+        /* lang */
+        .lang-pill { transition: all .2s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        /* Modal Transition and Scroll Lock */
+        body.modal-open { overflow: hidden; touch-action: none; }
+        .modal-animate-enter { animation: modalSlideUp 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(28px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .hover-lift { transition: transform .25s ease, box-shadow .25s ease; }
+        .hover-lift:hover { transform: translateY(-2px); }
+        /* scrollbars + progress for black theme */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #2a2a2e; border-radius: 8px; border: 2px solid #050505; }
+        ::-webkit-scrollbar-thumb:hover { background: #C8A951; }
+        #scrollProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 60;
+            background: linear-gradient(90deg, #C8A951, #4F7CFF, #34d399); transition: width .1s linear; box-shadow: 0 0 12px rgba(200,169,81,.7); }
         .card-ring { position: relative; }
-        .card-ring::after { content:""; position:absolute; inset:0; border-radius:1rem; pointer-events:none;
-            box-shadow: 0 0 0 0 rgba(24,90,219,0); transition: box-shadow .25s ease; }
-        .card-ring:focus-within::after, .card-ring:hover::after { box-shadow: 0 0 0 3px rgba(24,90,219,.15); }
+        .card-ring::after { content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+            box-shadow: 0 0 0 0 rgba(200,169,81,0); transition: box-shadow .25s ease; }
+        .card-ring:focus-within::after, .card-ring:hover::after { box-shadow: 0 0 0 2px rgba(200,169,81,.35); }
         .faq-answer { display:none; }
-        .faq-item.open .faq-answer { display:block; }
+        .faq-item.open .faq-answer { display:block; animation: fadeUp .4s ease both; }
         .faq-item.open .faq-chevron { transform: rotate(180deg); }
         .faq-chevron { transition: transform .25s ease; }
-        .chip-active { background:#0A1931 !important; color:#fff !important; border-color:#0A1931 !important; }
+        .chip-active { background:#C8A951 !important; color:#050505 !important; border-color:#C8A951 !important; }
         #backToTop { opacity:0; pointer-events:none; transition: opacity .3s ease, transform .3s ease; transform: translateY(8px); }
         #backToTop.show { opacity:1; pointer-events:auto; transform:none; }
+        /* inputs on black */
+        .field-dark { background: rgba(255,255,255,.06) !important; border-color: rgba(255,255,255,.14) !important; color: #fff !important; }
+        .field-dark::placeholder { color: rgba(255,255,255,.4); }
+        .field-dark:focus { border-color: rgba(200,169,81,.7) !important; box-shadow: 0 0 0 3px rgba(200,169,81,.18); background: rgba(255,255,255,.08) !important; }
+        select.field-dark option { background:#131316; color:#fff; }
         @media (prefers-reduced-motion: reduce) {
             .reveal { opacity:1; transform:none; transition:none; }
-            .animate-marquee { animation: none !important; }
+            .animate-marquee, .animate-float, .animate-float-slow, .animate-orb, .btn-shine::after { animation: none !important; }
         }
     </style>
 </head>
-<body class="bg-paper font-sans text-slate-800 antialiased selection:bg-royal selection:text-white pb-24 lg:pb-0" data-lang-active="en">
+<body class="bg-[#050505] font-sans text-zinc-300 antialiased selection:bg-gold selection:text-black pb-24 lg:pb-0" data-lang-active="en">
     <div id="scrollProgress" aria-hidden="true"></div>
-    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[70] focus:bg-navy focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[70] focus:bg-gold focus:text-black focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
 
-    <!-- Top Emergency Bar -->
-    <div class="bg-navy text-white text-[11px] sm:text-[12px] md:text-[13px] tracking-wide border-b border-white/10 relative z-50">
+    <!-- Top Emergency Bar — black glass -->
+    <div class="bg-black/80 backdrop-blur-xl text-white text-[11px] sm:text-[12px] md:text-[13px] tracking-wide border-b border-white/10 relative z-50">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 flex flex-wrap justify-between items-center gap-2">
             <div class="flex items-center gap-2 sm:gap-4">
                 <span class="flex items-center gap-1.5 font-medium">
-                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse-dot"></span>
                     <span data-i18n="top_emergency">Available 24/7 for Emergency Arrests</span>
                 </span>
                 <span class="hidden md:flex items-center gap-1.5 text-white/75 border-l border-white/15 pl-4">
@@ -160,152 +206,156 @@
                 </div>
                 <!-- Compact Language selector -->
                 <div class="flex items-center bg-white/10 rounded-full p-0.5 border border-white/20">
-                    <button onclick="setLang('en')" data-lang-btn="en" class="lang-pill px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider bg-white text-navy shadow-sm">EN</button>
+                    <button onclick="setLang('en')" data-lang-btn="en" class="lang-pill px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider bg-gold text-black shadow-sm">EN</button>
                     <button onclick="setLang('lg')" data-lang-btn="lg" class="lang-pill px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider text-white/80 hover:text-white">LUG</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-100 shadow-sm transition-all">
+    <!-- Navigation Header — floating black glass -->
+    <header class="sticky top-0 z-40 bg-black/70 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_40px_-12px_rgba(0,0,0,.9)] transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-[72px] flex items-center justify-between gap-3">
             <a href="#home" class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 group">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 bg-navy group-hover:bg-navy-light rounded-xl flex items-center justify-center text-gold font-serif text-xl sm:text-[22px] shadow-sm border border-gold/20 transition">⚖</div>
+                <div class="w-9 h-9 sm:w-10 sm:h-10 bg-white/[0.06] backdrop-blur-xl group-hover:bg-gold/20 rounded-xl flex items-center justify-center text-gold font-serif text-xl sm:text-[22px] shadow-sm border border-gold/30 transition animate-float">⚖</div>
                 <div class="leading-tight">
-                    <div class="font-serif text-[15px] xs:text-[17px] sm:text-[18px] font-bold tracking-tight text-navy">MASAKA CONSORTIUM</div>
-                    <div class="text-[9px] sm:text-[10px] tracking-[0.14em] uppercase font-semibold text-royal" data-i18n="sub_brand">For Human Rights Defenders</div>
+                    <div class="font-serif text-[15px] xs:text-[17px] sm:text-[18px] font-bold tracking-tight text-white">MASAKA CONSORTIUM</div>
+                    <div class="text-[9px] sm:text-[10px] tracking-[0.14em] uppercase font-semibold text-gold" data-i18n="sub_brand">For Human Rights Defenders</div>
                 </div>
             </a>
             
-            <nav class="hidden xl:flex items-center gap-6 text-[14px] font-semibold text-slate-700" aria-label="Primary">
-                <a href="#practices" class="hover:text-royal transition py-1" data-nav="practices" data-i18n="nav_practice">Practice Areas</a>
-                <a href="#who-we-help" class="hover:text-royal transition py-1" data-nav="who-we-help" data-i18n="nav_who">Who We Help</a>
-                <a href="#process" class="hover:text-royal transition py-1">How It Works</a>
-                <a href="#rights" class="hover:text-royal transition py-1">Your Rights</a>
-                <a href="#faq" class="hover:text-royal transition py-1">FAQ</a>
-                <a href="#team" class="hover:text-royal transition py-1" data-nav="team" data-i18n="nav_advocate">Our Advocate</a>
-                <a href="#careers" class="hover:text-royal text-navy flex items-center gap-1.5 transition py-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+            <nav class="hidden xl:flex items-center gap-6 text-[14px] font-semibold text-zinc-300" aria-label="Primary">
+                <a href="#practices" class="hover:text-gold transition py-1" data-nav="practices" data-i18n="nav_practice">Practice Areas</a>
+                <a href="#who-we-help" class="hover:text-gold transition py-1" data-nav="who-we-help" data-i18n="nav_who">Who We Help</a>
+                <a href="#process" class="hover:text-gold transition py-1">How It Works</a>
+                <a href="#rights" class="hover:text-gold transition py-1">Your Rights</a>
+                <a href="#faq" class="hover:text-gold transition py-1">FAQ</a>
+                <a href="#team" class="hover:text-gold transition py-1" data-nav="team" data-i18n="nav_advocate">Our Advocate</a>
+                <a href="#careers" class="hover:text-gold text-white flex items-center gap-1.5 transition py-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse-dot"></span>
                     <span data-i18n="nav_careers">Internships & Volunteers</span>
                 </a>
             </nav>
 
             <div class="flex items-center gap-2 sm:gap-3">
                 <!-- Volunteer Trigger Button -->
-                <a href="#careers" class="hidden lg:inline-flex items-center gap-1.5 h-10 px-4 rounded-full bg-gold-light hover:bg-gold/20 text-navy text-xs font-bold transition border border-gold/40">
+                <a href="#careers" class="hidden lg:inline-flex items-center gap-1.5 h-10 px-4 rounded-full glass-gold hover:bg-gold/25 text-white text-xs font-bold transition border border-gold/40">
                     <span class="text-xs">🤝</span>
                     <span data-i18n="cta_volunteer_nav">Join as Intern</span>
                 </a>
 
                 <!-- Direct Connect Modal Trigger Button -->
-                <button onclick="openContactModal('general')" class="hidden sm:inline-flex items-center gap-1.5 h-10 px-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-[13px] font-bold transition shadow-sm hover-lift">
+                <button onclick="openContactModal('general')" class="hidden sm:inline-flex items-center gap-1.5 h-10 px-4 rounded-full bg-emerald-400/100/90 backdrop-blur-xl hover:bg-emerald-400 text-black text-xs sm:text-[13px] font-bold transition shadow-[0_0_24px_-6px_rgba(16,185,129,.6)] hover-lift btn-shine">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.545 1.769.816 2.796.816 3.179 0 5.767-2.587 5.767-5.768 0-3.181-2.588-5.766-5.767-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.69 0-3.277-.42-4.667-1.163l-5.333 1.397 1.424-5.203c-.881-1.488-1.424-3.224-1.424-5.031 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/></svg>
                     <span data-i18n="cta_connect_direct">Quick Connect</span>
                 </button>
 
-                <a href="#contact" class="hidden md:inline-flex h-10 px-5 bg-navy hover:bg-navy-light text-white rounded-full text-xs sm:text-[13px] font-bold items-center justify-center transition shadow-sm hover-lift" data-i18n="cta_free_eval">Get Free Evaluation</a>
+                <a href="#contact" class="hidden md:inline-flex h-10 px-5 gold-gradient text-black rounded-full text-xs sm:text-[13px] font-bold items-center justify-center transition shadow-[0_0_28px_-8px_rgba(200,169,81,.7)] hover-lift btn-shine" data-i18n="cta_free_eval">Get Free Evaluation</a>
 
                 <!-- Mobile / Tablet Hamburger Button -->
-                <button id="menuBtn" aria-label="Toggle Navigation Menu" class="xl:hidden w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 hover:bg-slate-200 transition">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <button id="menuBtn" aria-label="Toggle Navigation Menu" class="xl:hidden w-10 h-10 rounded-full glass text-white hover:border-gold/50 transition">
+                    <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile / Tablet Collapsible Menu -->
-        <div id="mobileMenu" class="hidden xl:hidden border-t border-slate-100 bg-white px-4 sm:px-6 py-4 shadow-xl">
-            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-                <span class="text-xs font-bold uppercase tracking-wider text-slate-500" data-i18n="choose_lang">Language / Olulimi</span>
-                <div class="flex bg-slate-100 rounded-full p-1 border border-slate-200">
-                    <button onclick="setLang('en')" data-lang-btn-m="en" class="px-3 py-1 rounded-full text-xs font-bold bg-navy text-white transition">English</button>
-                    <button onclick="setLang('lg')" data-lang-btn-m="lg" class="px-3 py-1 rounded-full text-xs font-bold text-slate-600 transition">Luganda</button>
+        <!-- Mobile / Tablet Collapsible Menu — black glass sheet -->
+        <div id="mobileMenu" class="hidden xl:hidden border-t border-white/10 bg-black/85 backdrop-blur-2xl px-4 sm:px-6 py-4 shadow-2xl animate-fade-up">
+            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <span class="text-xs font-bold uppercase tracking-wider text-zinc-500" data-i18n="choose_lang">Language / Olulimi</span>
+                <div class="flex bg-white/5 rounded-full p-1 border border-white/10">
+                    <button onclick="setLang('en')" data-lang-btn-m="en" class="px-3 py-1 rounded-full text-xs font-bold bg-gold text-black transition">English</button>
+                    <button onclick="setLang('lg')" data-lang-btn-m="lg" class="px-3 py-1 rounded-full text-xs font-bold text-zinc-400 transition">Luganda</button>
                 </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-1 py-2 text-sm font-semibold text-slate-700">
-                <a href="#practices" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition" data-i18n="nav_practice">Practice Areas</a>
-                <a href="#who-we-help" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition" data-i18n="nav_who">Who We Help</a>
-                <a href="#process" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition">How It Works</a>
-                <a href="#rights" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition">Your Rights</a>
-                <a href="#faq" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition">FAQ</a>
-                <a href="#team" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition" data-i18n="nav_advocate">Our Advocate</a>
-                <a href="#careers" class="py-2.5 px-3 rounded-lg bg-gold-light/60 text-navy font-bold hover:bg-gold-light transition" data-i18n="nav_careers">Internships & Volunteers</a>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-1 py-2 text-sm font-semibold text-zinc-300">
+                <a href="#practices" class="py-2.5 px-3 rounded-lg hover:bg-white/5 hover:text-gold transition" data-i18n="nav_practice">Practice Areas</a>
+                <a href="#who-we-help" class="py-2.5 px-3 rounded-lg hover:bg-white/5 hover:text-gold transition" data-i18n="nav_who">Who We Help</a>
+                <a href="#process" class="py-2.5 px-3 rounded-lg hover:bg-white/5 hover:text-gold transition">How It Works</a>
+                <a href="#rights" class="py-2.5 px-3 rounded-lg hover:bg-white/5 hover:text-gold transition">Your Rights</a>
+                <a href="#faq" class="py-2.5 px-3 rounded-lg hover:bg-white/5 hover:text-gold transition">FAQ</a>
+                <a href="#team" class="py-2.5 px-3 rounded-lg hover:bg-white/5 hover:text-gold transition" data-i18n="nav_advocate">Our Advocate</a>
+                <a href="#careers" class="py-2.5 px-3 rounded-lg bg-gold/15/60 text-white font-bold hover:bg-gold/15 transition" data-i18n="nav_careers">Internships & Volunteers</a>
             </div>
-            <div class="pt-3 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="pt-3 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <button onclick="openContactModal('emergency'); document.getElementById('mobileMenu').classList.add('hidden');" class="w-full flex h-11 bg-emerald-600 text-white rounded-xl items-center justify-center font-bold text-xs sm:text-sm gap-2 shadow">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.545 1.769.816 2.796.816 3.179 0 5.767-2.587 5.767-5.768 0-3.181-2.588-5.766-5.767-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.69 0-3.277-.42-4.667-1.163l-5.333 1.397 1.424-5.203c-.881-1.488-1.424-3.224-1.424-5.031 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/></svg>
                     <span data-i18n="cta_speak_now">WhatsApp / Direct Call</span>
                 </button>
-                <a href="#contact" class="flex h-11 bg-navy text-white rounded-xl items-center justify-center font-bold text-xs sm:text-sm shadow" data-i18n="cta_free_eval">Get Free Evaluation</a>
+                <a href="#contact" class="flex h-11 bg-black text-white rounded-xl items-center justify-center font-bold text-xs sm:text-sm shadow" data-i18n="cta_free_eval">Get Free Evaluation</a>
             </div>
-            <div class="pt-3 text-[11px] text-slate-500 text-center">
+            <div class="pt-3 text-[11px] text-zinc-500 text-center">
                 📍 Lugave House, Elgon Street, Masaka City • piuskabiswa@gmail.com
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero-gradient relative overflow-hidden noise">
+    <!-- HERO — black glass stage, mobile-first, animated orbs -->
+    <section id="home" class="hero-stage relative overflow-hidden noise">
+        <div class="absolute inset-0 grid-lines"></div>
+        <div class="orb w-[420px] h-[420px] bg-gold/20 -top-32 -left-24 animate-orb"></div>
+        <div class="orb w-[380px] h-[380px] bg-[#4F7CFF]/20 top-20 right-[-120px] animate-orb" style="animation-delay:-6s"></div>
+        <div class="orb w-[280px] h-[280px] bg-emerald-400/100/10 bottom-[-100px] left-1/3 animate-float-slow"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 py-10 sm:py-16 lg:py-20 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 py-10 sm:py-16 lg:py-20 items-center">
                 
                 <!-- Hero Left Column -->
-                <div class="lg:col-span-7 text-white">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] sm:text-xs font-semibold tracking-wide mb-4 sm:mb-6 backdrop-blur-md" data-i18n="hero_badge">
-                        <span class="w-2 h-2 rounded-full bg-gold animate-ping"></span>
+                <div class="lg:col-span-7 text-white animate-fade-up">
+                    <div class="glass inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide mb-4 sm:mb-6" data-i18n="hero_badge">
+                        <span class="w-2 h-2 rounded-full bg-gold animate-pulse-dot"></span>
                         HUMAN RIGHTS LAWYERS IN MASAKA • SINCE 2012
                     </div>
                     
-                    <h1 class="font-serif text-[32px] xs:text-[40px] sm:text-[50px] md:text-[56px] lg:text-[62px] leading-[1.02] tracking-tight text-balance">
+                    <h1 class="font-serif text-[clamp(2rem,8vw,3.9rem)] leading-[1.02] tracking-tight text-balance">
                         <span data-i18n="hero_h1_1">Arrested for</span><br class="hidden sm:inline"/>
-                        <span class="italic font-light text-gold" data-i18n="hero_h1_2">defending rights?</span><br/>
+                        <span class="italic font-light gold-text" data-i18n="hero_h1_2">defending rights?</span><br/>
                         <span data-i18n="hero_h1_3">We defend the defenders.</span>
                     </h1>
                     
-                    <p class="mt-4 sm:mt-6 text-[15px] sm:text-[17px] md:text-[18px] leading-relaxed text-white/85 max-w-xl text-balance" data-i18n="hero_p">
+                    <p class="mt-4 sm:mt-6 text-[15px] sm:text-[17px] md:text-[18px] leading-relaxed text-zinc-400 max-w-xl text-balance" data-i18n="hero_p">
                         If you are a human rights defender, journalist, activist, or community leader facing threats, wrongful arrest, or intimidation in Greater Masaka — reach out immediately for fast legal defense.
                     </p>
                     
-                    <!-- Proof Stats Strip -->
-                    <div class="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-6 border-y border-white/15 py-4 sm:py-5 max-w-lg">
-                        <div class="text-center sm:text-left">
+                    <!-- Proof Stats Strip — glass -->
+                    <div class="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-3 max-w-lg">
+                        <div class="glass glass-hover rounded-2xl px-2 py-3 sm:p-4 text-center sm:text-left">
                             <div class="font-serif text-2xl xs:text-3xl sm:text-[32px] font-bold leading-none text-white"><span data-count="500">500</span>+</div>
-                            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/70 mt-1" data-i18n="proof1">Defenders<br/>Protected</div>
+                            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-zinc-400 mt-1" data-i18n="proof1">Defenders<br/>Protected</div>
                         </div>
-                        <div class="text-center sm:text-left border-x border-white/10 px-2 sm:px-0">
+                        <div class="glass-gold glass-hover rounded-2xl px-2 py-3 sm:p-4 text-center sm:text-left">
                             <div class="font-serif text-2xl xs:text-3xl sm:text-[32px] font-bold leading-none text-gold"><span data-count="94">94</span>%</div>
-                            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/70 mt-1" data-i18n="proof2">Cases<br/>Resolved</div>
+                            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-zinc-300 mt-1" data-i18n="proof2">Cases<br/>Resolved</div>
                         </div>
-                        <div class="text-center sm:text-left">
+                        <div class="glass rounded-2xl px-2 py-3 sm:p-4 text-center sm:text-left glass-hover">
                             <div class="font-serif text-2xl xs:text-3xl sm:text-[32px] font-bold leading-none text-white">24/7</div>
-                            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/70 mt-1" data-i18n="proof3">Emergency<br/>Response</div>
+                            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-zinc-400 mt-1" data-i18n="proof3">Emergency<br/>Response</div>
                         </div>
                     </div>
 
                     <!-- Trust row: placeholder avatars + rating (no new file paths) -->
                     <div class="mt-4 flex flex-wrap items-center gap-3">
                         <div class="flex -space-x-2" aria-hidden="true">
-                            <span class="w-8 h-8 rounded-full bg-gold text-navy text-[11px] font-extrabold flex items-center justify-center border-2 border-[#122a5c]">PN</span>
-                            <span class="w-8 h-8 rounded-full bg-white text-navy text-[11px] font-extrabold flex items-center justify-center border-2 border-[#122a5c]">DM</span>
-                            <span class="w-8 h-8 rounded-full bg-emerald-400 text-navy text-[11px] font-extrabold flex items-center justify-center border-2 border-[#122a5c]">SK</span>
-                            <span class="w-8 h-8 rounded-full bg-navy-light text-gold text-[11px] font-extrabold flex items-center justify-center border-2 border-white/40">80+</span>
+                            <span class="w-8 h-8 rounded-full gold-gradient text-black text-[11px] font-extrabold flex items-center justify-center border-2 border-black">PN</span>
+                            <span class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-xl text-white text-[11px] font-extrabold flex items-center justify-center border-2 border-black">DM</span>
+                            <span class="w-8 h-8 rounded-full bg-emerald-400 text-black text-[11px] font-extrabold flex items-center justify-center border-2 border-black">SK</span>
+                            <span class="w-8 h-8 rounded-full glass text-gold text-[11px] font-extrabold flex items-center justify-center border-2 border-black">80+</span>
                         </div>
-                        <div class="text-xs text-white/80">
+                        <div class="text-xs text-zinc-400">
                             <span class="text-gold tracking-tight" aria-label="Rated 4.9 out of 5">★★★★★</span>
                             <span class="font-semibold text-white">4.9/5</span> from defenders & CSOs • Free first evaluation
                         </div>
                     </div>
 
-                    <!-- Main Hero CTA Actions -->
+                    <!-- Main Hero CTA Actions — full-width on mobile -->
                     <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md sm:max-w-none">
-                        <button onclick="openContactModal('emergency')" class="h-12 sm:h-13 px-6 sm:px-8 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full font-bold text-sm sm:text-[15px] inline-flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-900/30 hover-lift">
+                        <button onclick="openContactModal('emergency')" class="min-h-[3rem] px-6 sm:px-8 bg-emerald-400 hover:bg-emerald-300 text-black rounded-2xl font-bold text-sm sm:text-[15px] inline-flex items-center justify-center gap-2 transition shadow-[0_0_36px_-8px_rgba(52,211,153,.7)] hover-lift btn-shine active:scale-[.98]">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.545 1.769.816 2.796.816 3.179 0 5.767-2.587 5.767-5.768 0-3.181-2.588-5.766-5.767-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.69 0-3.277-.42-4.667-1.163l-5.333 1.397 1.424-5.203c-.881-1.488-1.424-3.224-1.424-5.031 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/></svg>
                             <span data-i18n="cta_speak_now">Speak to Advocate Now</span>
                         </button>
                         
-                        <a href="#contact" class="h-12 sm:h-13 px-6 sm:px-8 bg-white text-navy hover:bg-gold-light rounded-full font-bold text-sm sm:text-[15px] inline-flex items-center justify-center gap-2 transition shadow-lg hover-lift">
+                        <a href="#contact" class="min-h-[3rem] px-6 sm:px-8 glass glass-hover text-white rounded-2xl font-bold text-sm sm:text-[15px] inline-flex items-center justify-center gap-2 transition active:scale-[.98]">
                             <span data-i18n="cta_free_eval_long">Get Free Evaluation</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
                     
@@ -317,17 +367,17 @@
 
                 <!-- Hero Right Column: Advocate Profile Card -->
                 <div class="lg:col-span-5 relative mt-4 lg:mt-0">
-                    <div class="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-2xl border border-white/20 relative">
+                    <div class="glass rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-2xl border border-white/20 relative">
                         <div class="flex items-start justify-between mb-5 gap-3">
                             <div>
-                                <div class="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-bold text-royal" data-i18n="card_lead">Lead Advocate</div>
-                                <div class="font-serif text-xl sm:text-2xl font-bold leading-tight mt-1 text-navy">Kabiswa Pius Kiryowa</div>
-                                <div class="text-xs sm:text-[13px] text-slate-500 mt-0.5" data-i18n="card_role">Advocate, Senior Legal Consultant</div>
+                                <div class="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-bold text-gold" data-i18n="card_lead">Lead Advocate</div>
+                                <div class="font-serif text-xl sm:text-2xl font-bold leading-tight mt-1 text-white">Kabiswa Pius Kiryowa</div>
+                                <div class="text-xs sm:text-[13px] text-zinc-500 mt-0.5" data-i18n="card_role">Advocate, Senior Legal Consultant</div>
                             </div>
 
                             <!-- Advocate Profile Photo -->
                             <div class="relative flex-shrink-0">
-                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md bg-slate-100">
+                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md bg-white/5">
                                     <img 
                                         src="2.jpg" 
                                         alt="Advocate Kabiswa Pius Kiryowa" 
@@ -336,47 +386,47 @@
                                     />
                                 </div>
                                 <!-- Verified Scales Badge -->
-                                <span class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-navy text-gold text-[11px] flex items-center justify-center border-2 border-white shadow-sm" title="Enrolled Advocate of High Court">
+                                <span class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-black text-gold text-[11px] flex items-center justify-center border-2 border-white shadow-sm" title="Enrolled Advocate of High Court">
                                     ⚖️
                                 </span>
                             </div>
                         </div>
                         
                         <div class="space-y-3">
-                            <div class="flex gap-2.5 p-3 rounded-xl bg-royal-light/70 border border-royal/10 text-xs sm:text-[13px] text-slate-700 leading-snug">
-                                <div class="w-5 h-5 rounded-full bg-royal text-white flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</div>
+                            <div class="flex gap-2.5 p-3 rounded-xl bg-gold/15 border border-gold/20 text-xs sm:text-[13px] text-zinc-300 leading-snug">
+                                <div class="w-5 h-5 rounded-full bg-gold text-black flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</div>
                                 <div data-i18n="card_built">Direct access to experienced counsel. No intermediaries or delay when every hour matters.</div>
                             </div>
                             
                             <div class="grid grid-cols-2 gap-2.5">
-                                <button onclick="openContactModal('call')" class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 hover:bg-royal-light/50 border text-left transition group">
-                                    <div class="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-slate-500 group-hover:text-royal" data-i18n="direct_line">Direct Line</div>
-                                    <div class="font-bold text-navy text-xs sm:text-[14px] mt-0.5">+256 750 838511</div>
-                                    <div class="text-[11px] text-emerald-600 font-medium mt-0.5 flex items-center gap-1">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                <button onclick="openContactModal('call')" class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 hover:bg-gold/15 border text-left transition group">
+                                    <div class="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-zinc-500 group-hover:text-gold" data-i18n="direct_line">Direct Line</div>
+                                    <div class="font-bold text-white text-xs sm:text-[14px] mt-0.5">+256 750 838511</div>
+                                    <div class="text-[11px] text-emerald-400 font-medium mt-0.5 flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400/100"></span>
                                         <span data-i18n="emergency_ans">Tap to call</span>
                                     </div>
                                 </button>
                                 
-                                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border text-left">
-                                    <div class="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-slate-500" data-i18n="office">Chambers</div>
-                                    <div class="font-bold text-navy text-xs sm:text-[14px] mt-0.5" data-i18n="office_city">Masaka City</div>
-                                    <div class="text-[11px] text-slate-500 mt-0.5 truncate">Lugave Hse, Elgon St</div>
+                                <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 border text-left">
+                                    <div class="text-[10px] sm:text-[11px] uppercase tracking-wider font-bold text-zinc-500" data-i18n="office">Chambers</div>
+                                    <div class="font-bold text-white text-xs sm:text-[14px] mt-0.5" data-i18n="office_city">Masaka City</div>
+                                    <div class="text-[11px] text-zinc-500 mt-0.5 truncate">Lugave Hse, Elgon St</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Testimonial Quote -->
-                        <div class="mt-4 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-navy text-white flex gap-3">
+                        <div class="mt-4 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-black text-white flex gap-3">
                             <div class="text-gold text-xl font-serif">“</div>
                             <div class="text-xs sm:text-[13px] leading-relaxed text-white/90" data-i18n="quote1">
                                 When I was unlawfully detained, the lawyer arrived at the police station immediately. That swift intervention made all the difference.
                             </div>
                         </div>
 
-                        <div class="mt-4 flex items-center justify-between pt-2 border-t border-slate-100 text-[11px] sm:text-xs text-slate-500">
+                        <div class="mt-4 flex items-center justify-between pt-2 border-t border-white/10 text-[11px] sm:text-xs text-zinc-500">
                             <span data-i18n="trusted_by">Trusted by 80+ CSOs in Greater Masaka</span>
-                            <span class="font-bold text-royal">MACHRID</span>
+                            <span class="font-bold text-gold">MACHRID</span>
                         </div>
                     </div>
                 </div>
@@ -385,11 +435,11 @@
     </section>
 
     <!-- Social Proof Badges Strip (Smooth Infinite CSS Marquee) -->
-    <section class="bg-white border-y border-slate-200/80 py-3.5 overflow-hidden">
+    <section class="glass border-y border-white/10/80 py-3.5 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center">
             <!-- Label Badge -->
-            <div class="text-royal flex items-center gap-2 flex-shrink-0 pr-6 border-r border-slate-200 z-10 bg-white">
-                <span class="w-2 h-2 rounded-full bg-royal animate-pulse"></span>
+            <div class="text-gold flex items-center gap-2 flex-shrink-0 pr-6 border-r border-white/10 z-10 glass">
+                <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
                 <span class="text-[11px] font-extrabold uppercase tracking-wider whitespace-nowrap" data-i18n="featured">COLLABORATING WITH</span>
             </div>
 
@@ -397,41 +447,41 @@
             <div class="overflow-hidden flex flex-1 ml-6 relative">
                 <div class="flex items-center gap-10 whitespace-nowrap animate-marquee">
                     <!-- Partner 1 -->
-                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-navy">
-                        <img src="xuhrc-logo-symbol.png.pagespeed.ic.cTLLRLDmcg.webp" alt="UHRC" class="h-6 w-6 object-contain rounded-full border border-slate-200 p-0.5 bg-white" onerror="this.style.display='none'"/>
+                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-white">
+                        <img src="xuhrc-logo-symbol.png.pagespeed.ic.cTLLRLDmcg.webp" alt="UHRC" class="h-6 w-6 object-contain rounded-full border border-white/10 p-0.5 glass" onerror="this.style.display='none'"/>
                         <span>Uganda Human Rights Commission</span>
                     </div>
                     <!-- Partner 2 -->
-                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-navy">
-                        <img src="xAM3duwD.jpg" alt="Judiciary" class="h-6 w-6 object-contain rounded-full border border-slate-200 p-0.5 bg-white" onerror="this.style.display='none'"/>
+                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-white">
+                        <img src="xAM3duwD.jpg" alt="Judiciary" class="h-6 w-6 object-contain rounded-full border border-white/10 p-0.5 glass" onerror="this.style.display='none'"/>
                         <span>Masaka High Court Circuit</span>
                     </div>
                     <!-- Partner 3 -->
-                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-navy">
-                        <img src="Logo-HRC.png" alt="UNHRC" class="h-6 w-6 object-contain rounded-full border border-slate-200 p-0.5 bg-white" onerror="this.style.display='none'"/>
+                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-white">
+                        <img src="Logo-HRC.png" alt="UNHRC" class="h-6 w-6 object-contain rounded-full border border-white/10 p-0.5 glass" onerror="this.style.display='none'"/>
                         <span>UN Human Rights Council</span>
                     </div>
                     <!-- Partner 4 -->
-                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-navy">
-                        <span class="w-6 h-6 rounded-full bg-royal-light text-royal flex items-center justify-center text-xs">🛡️</span>
+                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-white">
+                        <span class="w-6 h-6 rounded-full bg-gold/15 text-gold flex items-center justify-center text-xs">🛡️</span>
                         <span>Defend Defenders</span>
                     </div>
 
                     <!-- Duplicate for infinite seamless scroll -->
-                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-navy">
-                        <img src="xuhrc-logo-symbol.png.pagespeed.ic.cTLLRLDmcg.webp" alt="UHRC" class="h-6 w-6 object-contain rounded-full border border-slate-200 p-0.5 bg-white" onerror="this.style.display='none'"/>
+                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-white">
+                        <img src="xuhrc-logo-symbol.png.pagespeed.ic.cTLLRLDmcg.webp" alt="UHRC" class="h-6 w-6 object-contain rounded-full border border-white/10 p-0.5 glass" onerror="this.style.display='none'"/>
                         <span>Uganda Human Rights Commission</span>
                     </div>
-                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-navy">
-                        <img src="xAM3duwD.jpg" alt="Judiciary" class="h-6 w-6 object-contain rounded-full border border-slate-200 p-0.5 bg-white" onerror="this.style.display='none'"/>
+                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-white">
+                        <img src="xAM3duwD.jpg" alt="Judiciary" class="h-6 w-6 object-contain rounded-full border border-white/10 p-0.5 glass" onerror="this.style.display='none'"/>
                         <span>Masaka High Court Circuit</span>
                     </div>
-                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-navy">
-                        <img src="Logo-HRC.png" alt="UNHRC" class="h-6 w-6 object-contain rounded-full border border-slate-200 p-0.5 bg-white" onerror="this.style.display='none'"/>
+                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-white">
+                        <img src="Logo-HRC.png" alt="UNHRC" class="h-6 w-6 object-contain rounded-full border border-white/10 p-0.5 glass" onerror="this.style.display='none'"/>
                         <span>UN Human Rights Council</span>
                     </div>
-                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-navy">
-                        <span class="w-6 h-6 rounded-full bg-royal-light text-royal flex items-center justify-center text-xs">🛡️</span>
+                    <div class="inline-flex items-center gap-2.5 text-xs font-bold text-white">
+                        <span class="w-6 h-6 rounded-full bg-gold/15 text-gold flex items-center justify-center text-xs">🛡️</span>
                         <span>Defend Defenders</span>
                     </div>
                 </div>
@@ -440,115 +490,115 @@
     </section>
 
     <!-- PRACTICE SPECIFIC SECTION -->
-    <section id="practices" class="py-14 sm:py-20 bg-white scroll-mt-24">
+    <section id="practices" class="py-12 sm:py-20 bg-[#050505] scroll-mt-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="max-w-2xl reveal">
-                <div class="text-xs tracking-[0.2em] uppercase font-bold text-royal" data-i18n="practice_badge">Practice Specific Defense</div>
-                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-navy mt-2 text-balance font-bold" data-i18n="practice_h2">
+                <div class="text-xs tracking-[0.2em] uppercase font-bold text-gold" data-i18n="practice_badge">Practice Specific Defense</div>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-white mt-2 text-balance font-bold" data-i18n="practice_h2">
                     Dedicated defense tailored for defenders and community champions.
                 </h2>
-                <p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed" data-i18n="practice_p">
+                <p class="mt-3 text-sm sm:text-base text-zinc-400 leading-relaxed" data-i18n="practice_p">
                     Click any practice area below to connect instantly via WhatsApp, Phone, or direct evaluation.
                 </p>
                 <div class="mt-5 flex flex-col sm:flex-row gap-3">
                     <label class="relative flex-1 max-w-md">
                         <span class="sr-only">Filter practice areas</span>
-                        <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
-                        <input id="practiceSearch" type="search" placeholder="Filter: e.g. arrest, land, journalist… (placeholder)" class="w-full h-11 pl-10 pr-4 rounded-full border border-slate-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none text-sm bg-slate-50 focus:bg-white" />
+                        <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+                        <input id="practiceSearch" type="search" placeholder="Filter: e.g. arrest, land, journalist… (placeholder)" class="field-dark w-full h-11 pl-10 pr-4 rounded-full border border-white/10 focus:border-gold/40 focus:ring-2 focus:ring-gold/20 outline-none text-sm bg-white/5 focus:bg-white/10" />
                     </label>
-                    <p id="practiceCount" class="text-xs text-slate-500 self-center" aria-live="polite"></p>
+                    <p id="practiceCount" class="text-xs text-zinc-500 self-center" aria-live="polite"></p>
                 </div>
             </div>
 
-            <div id="practiceGrid" class="mt-8 sm:mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div id="practiceGrid" class="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <!-- Practice 1 -->
-                <div class="p-6 rounded-2xl border border-slate-200 hover:border-royal hover:shadow-xl transition-all duration-300 bg-white flex flex-col justify-between group">
+                <div class="p-6 glass glass-hover rounded-2xl border-white/10 hover:border-gold/40 hover:shadow-xl transition-all duration-300 glass flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-royal-light flex items-center justify-center text-royal text-2xl group-hover:scale-110 transition-transform">🛡️</div>
-                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-navy" data-i18n="p1_title">Unlawful Arrest & Police Bond</h3>
-                        <p class="text-xs sm:text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p1_desc">
+                        <div class="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center text-gold text-2xl group-hover:scale-110 transition-transform">🛡️</div>
+                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-white" data-i18n="p1_title">Unlawful Arrest & Police Bond</h3>
+                        <p class="text-xs sm:text-[14px] text-zinc-400 mt-2 leading-relaxed" data-i18n="p1_desc">
                             Arrested during peaceful assembly, protest, or community monitoring? We intervene directly to secure police bond in hours.
                         </p>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
-                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100" data-i18n="p1_badge">127+ Bonds & Dismissals</span>
-                        <button onclick="openContactModal('arrest')" class="text-xs font-bold text-royal group-hover:text-navy flex items-center gap-1 transition">
+                    <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-400/10 text-emerald-300 border border-emerald-400/20" data-i18n="p1_badge">127+ Bonds & Dismissals</span>
+                        <button onclick="openContactModal('arrest')" class="text-xs font-bold text-gold group-hover:text-white flex items-center gap-1 transition">
                             <span data-i18n="eval_for">Get Help</span> →
                         </button>
                     </div>
                 </div>
 
                 <!-- Practice 2 -->
-                <div class="p-6 rounded-2xl border border-slate-200 hover:border-royal hover:shadow-xl transition-all duration-300 bg-white flex flex-col justify-between group">
+                <div class="p-6 glass glass-hover rounded-2xl border-white/10 hover:border-gold/40 hover:shadow-xl transition-all duration-300 glass flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-gold-light flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📰</div>
-                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-navy" data-i18n="p2_title">Journalists & Press Freedom</h3>
-                        <p class="text-xs sm:text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p2_desc">
+                        <div class="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📰</div>
+                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-white" data-i18n="p2_title">Journalists & Press Freedom</h3>
+                        <p class="text-xs sm:text-[14px] text-zinc-400 mt-2 leading-relaxed" data-i18n="p2_desc">
                             Confiscated cameras, criminal libel charges, digital threats. We protect frontline reporters and media practitioners.
                         </p>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
-                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-100" data-i18n="p2_badge">Equipment Recoveries</span>
-                        <button onclick="openContactModal('journalist')" class="text-xs font-bold text-royal group-hover:text-navy flex items-center gap-1 transition">
+                    <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-gold/10 text-gold border border-amber-100" data-i18n="p2_badge">Equipment Recoveries</span>
+                        <button onclick="openContactModal('journalist')" class="text-xs font-bold text-gold group-hover:text-white flex items-center gap-1 transition">
                             <span data-i18n="eval_for">Get Help</span> →
                         </button>
                     </div>
                 </div>
 
                 <!-- Practice 3 -->
-                <div class="p-6 rounded-2xl border border-slate-200 hover:border-royal hover:shadow-xl transition-all duration-300 bg-white flex flex-col justify-between group">
+                <div class="p-6 glass glass-hover rounded-2xl border-white/10 hover:border-gold/40 hover:shadow-xl transition-all duration-300 glass flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🌍</div>
-                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-navy" data-i18n="p3_title">Land & Environmental Rights</h3>
-                        <p class="text-xs sm:text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p3_desc">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-400/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🌍</div>
+                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-white" data-i18n="p3_title">Land & Environmental Rights</h3>
+                        <p class="text-xs sm:text-[14px] text-zinc-400 mt-2 leading-relaxed" data-i18n="p3_desc">
                             Resisting forced evictions and land grabbing in Greater Masaka. We file emergency court injunctions to halt illegal demolitions.
                         </p>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
-                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100" data-i18n="p3_badge">34+ Court Injunctions</span>
-                        <button onclick="openContactModal('land')" class="text-xs font-bold text-royal group-hover:text-navy flex items-center gap-1 transition">
+                    <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-sky-400/10 text-sky-300 border border-blue-100" data-i18n="p3_badge">34+ Court Injunctions</span>
+                        <button onclick="openContactModal('land')" class="text-xs font-bold text-gold group-hover:text-white flex items-center gap-1 transition">
                             <span data-i18n="eval_for">Get Help</span> →
                         </button>
                     </div>
                 </div>
 
                 <!-- Practice 4 -->
-                <div class="p-6 rounded-2xl border border-slate-200 hover:border-royal hover:shadow-xl transition-all duration-300 bg-white flex flex-col justify-between group">
+                <div class="p-6 glass glass-hover rounded-2xl border-white/10 hover:border-gold/40 hover:shadow-xl transition-all duration-300 glass flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-rose-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">⚖️</div>
-                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-navy" data-i18n="p4_title">Women Defenders & SGBV</h3>
-                        <p class="text-xs sm:text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p4_desc">
+                        <div class="w-12 h-12 rounded-xl bg-rose-400/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">⚖️</div>
+                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-white" data-i18n="p4_title">Women Defenders & SGBV</h3>
+                        <p class="text-xs sm:text-[14px] text-zinc-400 mt-2 leading-relaxed" data-i18n="p4_desc">
                             Women HRDs facing targeted retaliation, digital harassment, or violence. Confidential, survivor-centered legal defense.
                         </p>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
-                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-100" data-i18n="p4_badge">Confidential Shelter Linked</span>
-                        <button onclick="openContactModal('whrd')" class="text-xs font-bold text-royal group-hover:text-navy flex items-center gap-1 transition">
+                    <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-rose-400/10 text-rose-300 border border-rose-100" data-i18n="p4_badge">Confidential Shelter Linked</span>
+                        <button onclick="openContactModal('whrd')" class="text-xs font-bold text-gold group-hover:text-white flex items-center gap-1 transition">
                             <span data-i18n="eval_for">Get Help</span> →
                         </button>
                     </div>
                 </div>
 
                 <!-- Practice 5 -->
-                <div class="p-6 rounded-2xl border border-slate-200 hover:border-royal hover:shadow-xl transition-all duration-300 bg-white flex flex-col justify-between group">
+                <div class="p-6 glass glass-hover rounded-2xl border-white/10 hover:border-gold/40 hover:shadow-xl transition-all duration-300 glass flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🏛️</div>
-                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-navy" data-i18n="p5_title">Public Interest Litigation</h3>
-                        <p class="text-xs sm:text-[14px] text-slate-600 mt-2 leading-relaxed" data-i18n="p5_desc">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-400/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🏛️</div>
+                        <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-4 text-white" data-i18n="p5_title">Public Interest Litigation</h3>
+                        <p class="text-xs sm:text-[14px] text-zinc-400 mt-2 leading-relaxed" data-i18n="p5_desc">
                             Strategic High Court and Constitutional Court litigation protecting fundamental human rights and defending civic space.
                         </p>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
-                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100" data-i18n="p5_badge">High Court Precedents</span>
-                        <button onclick="openContactModal('pil')" class="text-xs font-bold text-royal group-hover:text-navy flex items-center gap-1 transition">
+                    <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-indigo-400/10 text-indigo-300 border border-indigo-100" data-i18n="p5_badge">High Court Precedents</span>
+                        <button onclick="openContactModal('pil')" class="text-xs font-bold text-gold group-hover:text-white flex items-center gap-1 transition">
                             <span data-i18n="eval_for">Get Help</span> →
                         </button>
                     </div>
                 </div>
 
                 <!-- Practice 6 (Action Banner) -->
-                <div class="p-6 rounded-2xl bg-navy text-white flex flex-col justify-between shadow-xl relative overflow-hidden group">
-                    <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-royal/30 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="p-6 rounded-2xl bg-black text-white flex flex-col justify-between shadow-xl relative overflow-hidden group">
+                    <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-gold/30 rounded-full blur-2xl pointer-events-none"></div>
                     <div>
                         <div class="text-[11px] tracking-[0.2em] uppercase font-bold text-gold" data-i18n="why_thesis">24/7 Presence</div>
                         <h3 class="font-serif text-xl sm:text-[22px] font-bold mt-3 text-white" data-i18n="why_h3">Rooted in Masaka City</h3>
@@ -557,7 +607,7 @@
                         </p>
                     </div>
                     <div class="mt-6">
-                        <button onclick="openContactModal('emergency')" class="w-full py-3 px-4 bg-royal hover:bg-blue-600 rounded-xl font-bold text-xs sm:text-sm text-white transition flex items-center justify-center gap-2 hover-lift shadow-md">
+                        <button onclick="openContactModal('emergency')" class="w-full py-3 px-4 bg-gold hover:bg-blue-600 rounded-xl font-bold text-xs sm:text-sm text-white transition flex items-center justify-center gap-2 hover-lift shadow-md">
                             <span>Open Direct Contact Options</span> →
                         </button>
                     </div>
@@ -567,22 +617,22 @@
     </section>
 
     <!-- WHO WE HELP SECTION -->
-    <section id="who-we-help" class="py-14 sm:py-20 bg-[#F7F5F2] border-y border-slate-200">
+    <section id="who-we-help" class="py-12 sm:py-20 bg-[#0B0B0D] border-y border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 
                 <div class="lg:col-span-5 lg:sticky lg:top-28">
-                    <div class="text-xs tracking-[0.2em] uppercase font-bold text-royal" data-i18n="who_badge">Who We Help</div>
-                    <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-navy mt-2 leading-tight" data-i18n="who_h2">
+                    <div class="text-xs tracking-[0.2em] uppercase font-bold text-gold" data-i18n="who_badge">Who We Help</div>
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 leading-tight" data-i18n="who_h2">
                         Immediate protection when civic space is threatened.
                     </h2>
-                    <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed" data-i18n="who_p">
+                    <p class="mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed" data-i18n="who_p">
                         We represent those on the frontlines of accountability, civic freedoms, environmental defense, and community rights across the Greater Masaka sub-region.
                     </p>
 
-                    <div class="mt-6 p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex gap-3.5 items-center">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg flex-shrink-0">✓</div>
-                        <div class="text-xs sm:text-[13px] text-slate-700 font-medium" data-i18n="killer_desc">
+                    <div class="mt-6 p-4 rounded-2xl glass border border-white/10 shadow-sm flex gap-3.5 items-center">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-300 flex items-center justify-center font-bold text-lg flex-shrink-0">✓</div>
+                        <div class="text-xs sm:text-[13px] text-zinc-300 font-medium" data-i18n="killer_desc">
                             Direct intervention at police stations, magistrate courts, and high courts across Masaka, Kalungu, Lwengo, and Bukomansimbi.
                         </div>
                     </div>
@@ -590,44 +640,44 @@
 
                 <div class="lg:col-span-7 space-y-4 sm:space-y-6">
                     <!-- Testimonial 1 -->
-                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="glass p-5 sm:p-6 glass glass-hover rounded-2xl border-white/10 shadow-sm hover:shadow-md transition">
                         <div>
-                            <div class="font-bold text-navy text-sm sm:text-base">Prossy N. — Land Rights Activist, Lwengo</div>
-                            <p class="text-xs sm:text-[13px] text-slate-600 mt-1 leading-relaxed">
+                            <div class="font-bold text-white text-sm sm:text-base">Prossy N. — Land Rights Activist, Lwengo</div>
+                            <p class="text-xs sm:text-[13px] text-zinc-400 mt-1 leading-relaxed">
                                 "When our community land committee was threatened with trumped-up charges, Pius intervened immediately at the magistrate court and had the matter successfully resolved."
                             </p>
                             <div class="mt-3 flex flex-wrap gap-2">
-                                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">CASE DISMISSED</span>
-                                <span class="text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">Lwengo Jurisdiction</span>
+                                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-400/10 text-emerald-300 border border-emerald-400/30">CASE DISMISSED</span>
+                                <span class="text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-white/5 text-zinc-400">Lwengo Jurisdiction</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Testimonial 2 -->
-                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="glass p-5 sm:p-6 glass glass-hover rounded-2xl border-white/10 shadow-sm hover:shadow-md transition">
                         <div>
-                            <div class="font-bold text-navy text-sm sm:text-base">David M. — Investigative Journalist, Masaka</div>
-                            <p class="text-xs sm:text-[13px] text-slate-600 mt-1 leading-relaxed">
+                            <div class="font-bold text-white text-sm sm:text-base">David M. — Investigative Journalist, Masaka</div>
+                            <p class="text-xs sm:text-[13px] text-zinc-400 mt-1 leading-relaxed">
                                 "My equipment was seized during a public event coverage. Advocate Pius Kiryowa stepped in, filed the necessary legal petitions, and ensured my tools were returned intact."
                             </p>
                             <div class="mt-3 flex flex-wrap gap-2">
-                                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-royal border border-blue-200">EQUIPMENT RECOVERED</span>
-                                <span class="text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">Press Freedom</span>
+                                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sky-400/10 text-gold border border-sky-400/30">EQUIPMENT RECOVERED</span>
+                                <span class="text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-white/5 text-zinc-400">Press Freedom</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Proof metrics cards -->
                     <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="bg-gold-light/70 p-5 rounded-2xl border border-gold/30">
-                            <div class="text-2xl sm:text-3xl font-serif font-bold text-navy">UGX 0</div>
-                            <div class="text-xs sm:text-sm font-bold text-navy mt-1" data-i18n="ugx_title">Pro-Bono Aid for At-Risk HRDs</div>
-                            <div class="text-[11px] sm:text-xs text-slate-600 mt-1.5" data-i18n="ugx_desc">Supported via verified defender defense partnerships so legal fees are never a barrier.</div>
+                        <div class="bg-gold/15/70 p-5 rounded-2xl border border-gold/30">
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-white">UGX 0</div>
+                            <div class="text-xs sm:text-sm font-bold text-white mt-1" data-i18n="ugx_title">Pro-Bono Aid for At-Risk HRDs</div>
+                            <div class="text-[11px] sm:text-xs text-zinc-400 mt-1.5" data-i18n="ugx_desc">Supported via verified defender defense partnerships so legal fees are never a barrier.</div>
                         </div>
-                        <div class="bg-white p-5 rounded-2xl border border-slate-200">
-                            <div class="text-2xl sm:text-3xl font-serif font-bold text-navy">10 Mins</div>
-                            <div class="text-xs sm:text-sm font-bold text-navy mt-1" data-i18n="km_title">To Central Police Station</div>
-                            <div class="text-[11px] sm:text-xs text-slate-600 mt-1.5" data-i18n="km_desc">Located centrally at Lugave House on Elgon Street, right near judicial offices.</div>
+                        <div class="glass p-5 glass glass-hover rounded-2xl border-white/10">
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-white">10 Mins</div>
+                            <div class="text-xs sm:text-sm font-bold text-white mt-1" data-i18n="km_title">To Central Police Station</div>
+                            <div class="text-[11px] sm:text-xs text-zinc-400 mt-1.5" data-i18n="km_desc">Located centrally at Lugave House on Elgon Street, right near judicial offices.</div>
                         </div>
                     </div>
                 </div>
@@ -637,38 +687,38 @@
     </section>
 
     <!-- MEET ADVOCATE SECTION -->
-    <section id="team" class="py-14 sm:py-20 bg-white">
+    <section id="team" class="py-12 sm:py-20 bg-[#050505]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div class="lg:col-span-7 order-2 lg:order-1">
-                <div class="inline-flex px-3.5 py-1 rounded-full bg-navy text-white text-[10px] sm:text-[11px] tracking-widest uppercase font-bold" data-i18n="meet_human">
+                <div class="inline-flex px-3.5 py-1 rounded-full bg-black text-white text-[10px] sm:text-[11px] tracking-widest uppercase font-bold" data-i18n="meet_human">
                     Senior Legal Consultant
                 </div>
-                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-navy mt-3 leading-tight" data-i18n="team_h2">
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-3 leading-tight" data-i18n="team_h2">
                     Kabiswa Pius Kiryowa
                 </h2>
-                <p class="mt-3 sm:mt-4 text-sm sm:text-base text-slate-600 leading-relaxed" data-i18n="team_p">
+                <p class="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed" data-i18n="team_p">
                     Enrolled Advocate of the High Court of Uganda with over 15 years dedicated to human rights defense, civic protection, and strategic litigation in Greater Masaka.
                 </p>
                 
                 <div class="mt-6 space-y-3">
                     <div class="flex items-start gap-3">
-                        <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs flex-shrink-0 mt-0.5 font-bold">✓</div>
-                        <div class="text-xs sm:text-sm text-slate-700" data-i18n="team_li1"><span class="font-bold text-navy">High Court Advocate</span> — Handled over 500+ defender protection and civic space cases.</div>
+                        <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5 font-bold">✓</div>
+                        <div class="text-xs sm:text-sm text-zinc-300" data-i18n="team_li1"><span class="font-bold text-white">High Court Advocate</span> — Handled over 500+ defender protection and civic space cases.</div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs flex-shrink-0 mt-0.5 font-bold">✓</div>
-                        <div class="text-xs sm:text-sm text-slate-700" data-i18n="team_li2"><span class="font-bold text-navy">Trained in HRD Emergency Defense</span> — Collaborates with DefendDefenders & regional networks.</div>
+                        <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5 font-bold">✓</div>
+                        <div class="text-xs sm:text-sm text-zinc-300" data-i18n="team_li2"><span class="font-bold text-white">Trained in HRD Emergency Defense</span> — Collaborates with DefendDefenders & regional networks.</div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs flex-shrink-0 mt-0.5 font-bold">✓</div>
-                        <div class="text-xs sm:text-sm text-slate-700" data-i18n="team_li3"><span class="font-bold text-navy">Fluent Communication</span> — English, Luganda, and Swahili for all community members.</div>
+                        <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5 font-bold">✓</div>
+                        <div class="text-xs sm:text-sm text-zinc-300" data-i18n="team_li3"><span class="font-bold text-white">Fluent Communication</span> — English, Luganda, and Swahili for all community members.</div>
                     </div>
                 </div>
 
                 <div class="mt-8 flex flex-wrap items-center gap-3">
-                    <button onclick="openContactModal('call')" class="h-11 px-6 bg-navy hover:bg-navy-light text-white rounded-full inline-flex items-center gap-2 text-xs sm:text-sm font-semibold transition shadow-md hover-lift">
+                    <button onclick="openContactModal('call')" class="h-11 px-6 bg-black hover:bg-zinc-900 text-white rounded-full inline-flex items-center gap-2 text-xs sm:text-sm font-semibold transition shadow-md hover-lift">
                         <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"/></svg>
                         <span>Call: +256 750 838511</span>
                     </button>
@@ -681,7 +731,7 @@
             </div>
 
             <div class="lg:col-span-5 order-1 lg:order-2">
-                <div class="rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-900 aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/5] relative shadow-2xl">
+                <div class="rounded-2xl sm:rounded-3xl overflow-hidden bg-black aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/5] relative shadow-2xl">
                     
                     <div class="absolute inset-0 w-full h-full overflow-hidden">
                         <div id="advocate-carousel" class="flex w-full h-full">
@@ -711,99 +761,99 @@
 
 
     <!-- ================= HOW IT WORKS / EMERGENCY PROTOCOL ================= -->
-    <section id="process" class="py-14 sm:py-20 bg-white border-t border-slate-100 scroll-mt-24">
+    <section id="process" class="py-12 sm:py-20 bg-[#0B0B0D] border-t border-white/10 scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="max-w-2xl reveal">
-                <div class="text-xs tracking-[0.2em] uppercase font-bold text-royal">Emergency Protocol • How It Works</div>
-                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-navy mt-2">Arrested or threatened? Do this in the next 10 minutes.</h2>
-                <p class="mt-3 text-sm sm:text-base text-slate-600">Designed for low-bandwidth, high-stress moments. No account, no booking system — just direct human contact. Placeholders show where live wait-times or intake stats can plug in later.</p>
+                <div class="text-xs tracking-[0.2em] uppercase font-bold text-gold">Emergency Protocol • How It Works</div>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2">Arrested or threatened? Do this in the next 10 minutes.</h2>
+                <p class="mt-3 text-sm sm:text-base text-zinc-400">Designed for low-bandwidth, high-stress moments. No account, no booking system — just direct human contact. Placeholders show where live wait-times or intake stats can plug in later.</p>
             </div>
             <ol class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <li class="reveal p-5 rounded-2xl border border-slate-200 bg-slate-50 card-ring">
-                    <div class="w-9 h-9 rounded-full bg-navy text-gold font-extrabold flex items-center justify-center">1</div>
-                    <h3 class="font-bold text-navy mt-3 text-sm sm:text-base">Stay calm & stay silent</h3>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed">Do not argue or sign anything. Politely state: “I wish to contact my lawyer.” Note officer name, station & time if safe.</p>
-                    <p class="mt-3 text-[11px] font-semibold text-slate-500 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5">Say: “Nkwagala okuyita ku munnamateeka wange.” (I want to call my lawyer.)</p>
+                <li class="reveal p-5 glass glass-hover rounded-2xl border-white/10 bg-white/5 card-ring">
+                    <div class="w-9 h-9 rounded-full bg-black text-gold font-extrabold flex items-center justify-center">1</div>
+                    <h3 class="font-bold text-white mt-3 text-sm sm:text-base">Stay calm & stay silent</h3>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed">Do not argue or sign anything. Politely state: “I wish to contact my lawyer.” Note officer name, station & time if safe.</p>
+                    <p class="mt-3 text-[11px] font-semibold text-zinc-500 glass border border-white/10 rounded-lg px-2.5 py-1.5">Say: “Nkwagala okuyita ku munnamateeka wange.” (I want to call my lawyer.)</p>
                 </li>
-                <li class="reveal p-5 rounded-2xl border border-emerald-200 bg-emerald-50/60 card-ring">
+                <li class="reveal p-5 rounded-2xl border border-emerald-400/30 bg-emerald-400/10 card-ring">
                     <div class="w-9 h-9 rounded-full bg-emerald-600 text-white font-extrabold flex items-center justify-center">2</div>
-                    <h3 class="font-bold text-navy mt-3 text-sm sm:text-base">Tap Quick Connect</h3>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed">One tap opens WhatsApp with a pre-filled emergency brief, or calls Pius directly. Share location + station name.</p>
+                    <h3 class="font-bold text-white mt-3 text-sm sm:text-base">Tap Quick Connect</h3>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed">One tap opens WhatsApp with a pre-filled emergency brief, or calls Pius directly. Share location + station name.</p>
                     <button onclick="openContactModal('emergency')" class="mt-3 w-full h-10 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition">Open emergency options →</button>
                 </li>
-                <li class="reveal p-5 rounded-2xl border border-slate-200 bg-slate-50 card-ring">
-                    <div class="w-9 h-9 rounded-full bg-royal text-white font-extrabold flex items-center justify-center">3</div>
-                    <h3 class="font-bold text-navy mt-3 text-sm sm:text-base">We intervene at the station</h3>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed">We push for police bond, document injuries/threats, and stop coerced statements. Central Masaka reach in minutes.</p>
-                    <p class="mt-3 text-[11px] text-slate-500">Avg. station reach (placeholder): <strong class="text-navy">~15–30 min</strong> in Masaka City</p>
+                <li class="reveal p-5 glass glass-hover rounded-2xl border-white/10 bg-white/5 card-ring">
+                    <div class="w-9 h-9 rounded-full bg-gold text-black font-extrabold flex items-center justify-center">3</div>
+                    <h3 class="font-bold text-white mt-3 text-sm sm:text-base">We intervene at the station</h3>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed">We push for police bond, document injuries/threats, and stop coerced statements. Central Masaka reach in minutes.</p>
+                    <p class="mt-3 text-[11px] text-zinc-500">Avg. station reach (placeholder): <strong class="text-white">~15–30 min</strong> in Masaka City</p>
                 </li>
-                <li class="reveal p-5 rounded-2xl border border-gold/40 bg-gold-light/60 card-ring">
-                    <div class="w-9 h-9 rounded-full bg-gold text-navy font-extrabold flex items-center justify-center">4</div>
-                    <h3 class="font-bold text-navy mt-3 text-sm sm:text-base">Follow-up & court cover</h3>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed">Bond follow-up, file review, magistrate/high-court representation, plus safety planning for ongoing threats.</p>
-                    <a href="#contact" class="mt-3 inline-flex w-full h-10 rounded-xl bg-navy hover:bg-navy-light text-white text-xs font-bold items-center justify-center transition">Get free evaluation →</a>
+                <li class="reveal p-5 rounded-2xl border border-gold/40 bg-gold/15/60 card-ring">
+                    <div class="w-9 h-9 rounded-full bg-gold text-black font-extrabold flex items-center justify-center">4</div>
+                    <h3 class="font-bold text-white mt-3 text-sm sm:text-base">Follow-up & court cover</h3>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed">Bond follow-up, file review, magistrate/high-court representation, plus safety planning for ongoing threats.</p>
+                    <a href="#contact" class="mt-3 inline-flex w-full h-10 rounded-xl bg-black hover:bg-zinc-900 text-white text-xs font-bold items-center justify-center transition">Get free evaluation →</a>
                 </li>
             </ol>
             <div class="mt-6 flex flex-wrap gap-2 text-[11px]">
-                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 font-semibold text-slate-600">No fee to ask for help</span>
-                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 font-semibold text-slate-600">Luganda • English • Swahili</span>
-                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 font-semibold text-slate-600">Confidential under Advocate–Client privilege</span>
-                <span class="px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 font-semibold text-amber-800">Live status widget placeholder</span>
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 font-semibold text-zinc-400">No fee to ask for help</span>
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 font-semibold text-zinc-400">Luganda • English • Swahili</span>
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 font-semibold text-zinc-400">Confidential under Advocate–Client privilege</span>
+                <span class="px-3 py-1.5 rounded-full bg-gold/10 border border-gold/30 font-semibold text-gold">Live status widget placeholder</span>
             </div>
         </div>
     </section>
 
     <!-- ================= KNOW YOUR RIGHTS ================= -->
-    <section id="rights" class="py-14 sm:py-20 bg-[#F7F5F2] border-y border-slate-200 scroll-mt-24">
+    <section id="rights" class="py-12 sm:py-20 bg-[#050505] border-y border-white/10 scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 reveal">
                 <div class="max-w-2xl">
-                    <div class="text-xs tracking-[0.2em] uppercase font-bold text-royal">Know Your Rights • Uganda</div>
-                    <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-navy mt-2">What police & communities must respect.</h2>
-                    <p class="mt-3 text-sm sm:text-base text-slate-600">General information only — not legal advice. For urgent cases, always call. Luganda summaries included for accessibility.</p>
+                    <div class="text-xs tracking-[0.2em] uppercase font-bold text-gold">Know Your Rights • Uganda</div>
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2">What police & communities must respect.</h2>
+                    <p class="mt-3 text-sm sm:text-base text-zinc-400">General information only — not legal advice. For urgent cases, always call. Luganda summaries included for accessibility.</p>
                 </div>
                 <div class="flex gap-2" role="tablist" aria-label="Rights language">
-                    <button class="rights-tab chip-active px-4 h-10 rounded-full border border-slate-300 text-xs font-bold bg-white" data-rights-tab="en">English</button>
-                    <button class="rights-tab px-4 h-10 rounded-full border border-slate-300 text-xs font-bold bg-white text-slate-600" data-rights-tab="lg">Luganda (placeholder)</button>
+                    <button class="rights-tab chip-active px-4 h-10 rounded-full border border-white/15 text-xs font-bold glass" data-rights-tab="en">English</button>
+                    <button class="rights-tab px-4 h-10 rounded-full border border-white/15 text-xs font-bold glass text-zinc-400" data-rights-tab="lg">Luganda (placeholder)</button>
                 </div>
             </div>
             <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                <article class="reveal glass p-5 sm:p-6 glass glass-hover rounded-2xl border-white/10 shadow-sm card-ring">
                     <div class="text-2xl">🚔</div>
-                    <h3 class="font-bold text-navy mt-2">48-hour rule & police bond</h3>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>A suspect must be produced in court within 48 hours or released on bond. You may apply for police bond; denial must be justified and can be challenged.</p>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Omuzira ateekwa okutwalibwa mu kkooti mu ssaawa 48 oba ayimbulwe ku bondi. (Placeholder Luganda summary.)</p>
-                    <button onclick="openContactModal('arrest')" class="mt-3 text-xs font-bold text-royal hover:text-navy">Detained now? Get help →</button>
+                    <h3 class="font-bold text-white mt-2">48-hour rule & police bond</h3>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed" data-rights-en>A suspect must be produced in court within 48 hours or released on bond. You may apply for police bond; denial must be justified and can be challenged.</p>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed hidden" data-rights-lg>Omuzira ateekwa okutwalibwa mu kkooti mu ssaawa 48 oba ayimbulwe ku bondi. (Placeholder Luganda summary.)</p>
+                    <button onclick="openContactModal('arrest')" class="mt-3 text-xs font-bold text-gold hover:text-white">Detained now? Get help →</button>
                 </article>
-                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                <article class="reveal glass p-5 sm:p-6 glass glass-hover rounded-2xl border-white/10 shadow-sm card-ring">
                     <div class="text-2xl">🤫</div>
-                    <h3 class="font-bold text-navy mt-2">Right to remain silent</h3>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>You are not obliged to answer incriminating questions or sign statements without counsel. Ask for your lawyer and a witness present.</p>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Oli n'eddembe okusirika okutuusa munnamateeka wo lw'atuuka. (Placeholder Luganda summary.)</p>
-                    <a href="#faq" class="mt-3 inline-block text-xs font-bold text-royal hover:text-navy">What to say at the station →</a>
+                    <h3 class="font-bold text-white mt-2">Right to remain silent</h3>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed" data-rights-en>You are not obliged to answer incriminating questions or sign statements without counsel. Ask for your lawyer and a witness present.</p>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed hidden" data-rights-lg>Oli n'eddembe okusirika okutuusa munnamateeka wo lw'atuuka. (Placeholder Luganda summary.)</p>
+                    <a href="#faq" class="mt-3 inline-block text-xs font-bold text-gold hover:text-white">What to say at the station →</a>
                 </article>
-                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                <article class="reveal glass p-5 sm:p-6 glass glass-hover rounded-2xl border-white/10 shadow-sm card-ring">
                     <div class="text-2xl">📰</div>
-                    <h3 class="font-bold text-navy mt-2">Documenting & journalism</h3>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>Peaceful monitoring and reporting are protected civic activity. Seizure of cameras/phones must follow due process — record badge numbers and demand a receipt.</p>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Okukwata ebifaananyi n'okulondoola mu mirembe kikuumibwa. Saba risiti. (Placeholder.)</p>
-                    <button onclick="openContactModal('journalist')" class="mt-3 text-xs font-bold text-royal hover:text-navy">Equipment seized? Act fast →</button>
+                    <h3 class="font-bold text-white mt-2">Documenting & journalism</h3>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed" data-rights-en>Peaceful monitoring and reporting are protected civic activity. Seizure of cameras/phones must follow due process — record badge numbers and demand a receipt.</p>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed hidden" data-rights-lg>Okukwata ebifaananyi n'okulondoola mu mirembe kikuumibwa. Saba risiti. (Placeholder.)</p>
+                    <button onclick="openContactModal('journalist')" class="mt-3 text-xs font-bold text-gold hover:text-white">Equipment seized? Act fast →</button>
                 </article>
-                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                <article class="reveal glass p-5 sm:p-6 glass glass-hover rounded-2xl border-white/10 shadow-sm card-ring">
                     <div class="text-2xl">🌍</div>
-                    <h3 class="font-bold text-navy mt-2">Land evictions need orders</h3>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>No lawful eviction without a valid court order and due notice. Photograph notices, keep land documents safe, and seek an injunction urgently.</p>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Tewali kugoba kwa mateeka awatali ekiragiro kya kkooti. Kuuma ebbaluwa. (Placeholder.)</p>
-                    <button onclick="openContactModal('land')" class="mt-3 text-xs font-bold text-royal hover:text-navy">Threatened with eviction? →</button>
+                    <h3 class="font-bold text-white mt-2">Land evictions need orders</h3>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed" data-rights-en>No lawful eviction without a valid court order and due notice. Photograph notices, keep land documents safe, and seek an injunction urgently.</p>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed hidden" data-rights-lg>Tewali kugoba kwa mateeka awatali ekiragiro kya kkooti. Kuuma ebbaluwa. (Placeholder.)</p>
+                    <button onclick="openContactModal('land')" class="mt-3 text-xs font-bold text-gold hover:text-white">Threatened with eviction? →</button>
                 </article>
-                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                <article class="reveal glass p-5 sm:p-6 glass glass-hover rounded-2xl border-white/10 shadow-sm card-ring">
                     <div class="text-2xl">🛡️</div>
-                    <h3 class="font-bold text-navy mt-2">Safety for women defenders</h3>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>Threats, digital harassment and SGBV retaliation can be reported confidentially. Survivor-centred intake; shelter referrals where available (placeholder list).</p>
-                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Okutiisibwatiisibwa kunoonyezebwa mu kyama. (Placeholder.)</p>
-                    <button onclick="openContactModal('whrd')" class="mt-3 text-xs font-bold text-royal hover:text-navy">Request confidential help →</button>
+                    <h3 class="font-bold text-white mt-2">Safety for women defenders</h3>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed" data-rights-en>Threats, digital harassment and SGBV retaliation can be reported confidentially. Survivor-centred intake; shelter referrals where available (placeholder list).</p>
+                    <p class="text-xs sm:text-[13px] text-zinc-400 mt-1.5 leading-relaxed hidden" data-rights-lg>Okutiisibwatiisibwa kunoonyezebwa mu kyama. (Placeholder.)</p>
+                    <button onclick="openContactModal('whrd')" class="mt-3 text-xs font-bold text-gold hover:text-white">Request confidential help →</button>
                 </article>
-                <article class="reveal bg-navy text-white p-5 sm:p-6 rounded-2xl border border-white/10 shadow-xl card-ring">
+                <article class="reveal bg-black text-white p-5 sm:p-6 rounded-2xl border border-white/10 shadow-xl card-ring">
                     <div class="text-2xl">📸</div>
                     <h3 class="font-bold mt-2">If you can, preserve evidence</h3>
                     <ul class="text-xs sm:text-[13px] text-white/80 mt-2 space-y-1.5 leading-relaxed list-disc pl-4">
@@ -818,39 +868,39 @@
     </section>
 
     <!-- ================= IMPACT + FAQ ================= -->
-    <section id="faq" class="py-14 sm:py-20 bg-white border-b border-slate-100 scroll-mt-24">
+    <section id="faq" class="py-12 sm:py-20 bg-[#0B0B0D] border-b border-white/10 scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-8">
             <div class="lg:col-span-5 reveal">
-                <div class="text-xs tracking-[0.2em] uppercase font-bold text-royal">Impact & Answers</div>
-                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-navy mt-2">Clear answers before you call.</h2>
+                <div class="text-xs tracking-[0.2em] uppercase font-bold text-gold">Impact & Answers</div>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2">Clear answers before you call.</h2>
                 <div class="mt-6 grid grid-cols-2 gap-3">
-                    <div class="p-4 rounded-2xl bg-gold-light/70 border border-gold/30"><div class="font-serif text-2xl font-bold text-navy"><span data-count="12">12</span>+ yrs</div><div class="text-[11px] font-bold text-navy/70 uppercase tracking-wide mt-1">In Masaka since 2012</div></div>
-                    <div class="p-4 rounded-2xl bg-royal-light/60 border border-royal/20"><div class="font-serif text-2xl font-bold text-navy"><span data-count="80">80</span>+</div><div class="text-[11px] font-bold text-navy/70 uppercase tracking-wide mt-1">CSOs served</div></div>
-                    <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200"><div class="font-serif text-2xl font-bold text-navy"><span data-count="4">4</span> districts</div><div class="text-[11px] font-bold text-navy/70 uppercase tracking-wide mt-1">Masaka • Kalungu • Lwengo • Bukomansimbi</div></div>
-                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200"><div class="font-serif text-2xl font-bold text-navy">EN / LG</div><div class="text-[11px] font-bold text-navy/70 uppercase tracking-wide mt-1">+ Swahili intake</div></div>
+                    <div class="p-4 rounded-2xl bg-gold/15/70 border border-gold/30"><div class="font-serif text-2xl font-bold text-white"><span data-count="12">12</span>+ yrs</div><div class="text-[11px] font-bold text-white/70 uppercase tracking-wide mt-1">In Masaka since 2012</div></div>
+                    <div class="p-4 rounded-2xl bg-gold/15 border border-gold/20"><div class="font-serif text-2xl font-bold text-white"><span data-count="80">80</span>+</div><div class="text-[11px] font-bold text-white/70 uppercase tracking-wide mt-1">CSOs served</div></div>
+                    <div class="p-4 rounded-2xl bg-emerald-400/10 border border-emerald-400/30"><div class="font-serif text-2xl font-bold text-white"><span data-count="4">4</span> districts</div><div class="text-[11px] font-bold text-white/70 uppercase tracking-wide mt-1">Masaka • Kalungu • Lwengo • Bukomansimbi</div></div>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10"><div class="font-serif text-2xl font-bold text-white">EN / LG</div><div class="text-[11px] font-bold text-white/70 uppercase tracking-wide mt-1">+ Swahili intake</div></div>
                 </div>
-                <div class="mt-5 p-4 rounded-2xl bg-navy text-white text-xs leading-relaxed">Not sure where you fall? Use the <a href="#contact" class="text-gold font-bold underline">free evaluation form</a> — select the closest category and describe what happened. Urgent? Call <a class="font-bold text-white underline" href="tel:+256750838511">+256 750 838511</a> first.</div>
+                <div class="mt-5 p-4 rounded-2xl bg-black text-white text-xs leading-relaxed">Not sure where you fall? Use the <a href="#contact" class="text-gold font-bold underline">free evaluation form</a> — select the closest category and describe what happened. Urgent? Call <a class="font-bold text-white underline" href="tel:+256750838511">+256 750 838511</a> first.</div>
             </div>
             <div class="lg:col-span-7 space-y-3" id="faqList">
-                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
-                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">How fast can you reach a police station?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
-                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">We are based at Lugave House, Elgon Street — minutes from Masaka CPS and courts. In the city this is often 15–30 minutes depending on time of day (placeholder estimate). Outside Masaka we coordinate by phone immediately and travel where needed.</div>
+                <div class="faq-item reveal border border-white/10 rounded-2xl glass overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-white text-sm sm:text-[15px]">How fast can you reach a police station?</span><span class="faq-chevron text-gold font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-zinc-400 leading-relaxed">We are based at Lugave House, Elgon Street — minutes from Masaka CPS and courts. In the city this is often 15–30 minutes depending on time of day (placeholder estimate). Outside Masaka we coordinate by phone immediately and travel where needed.</div>
                 </div>
-                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
-                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">Is the first consultation really free?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
-                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">Yes — initial evaluation for human-rights defenders at risk is free and confidential. If a matter needs sustained litigation, we explain pro-bono eligibility or any costs in writing before you commit. No surprise fees.</div>
+                <div class="faq-item reveal border border-white/10 rounded-2xl glass overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-white text-sm sm:text-[15px]">Is the first consultation really free?</span><span class="faq-chevron text-gold font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-zinc-400 leading-relaxed">Yes — initial evaluation for human-rights defenders at risk is free and confidential. If a matter needs sustained litigation, we explain pro-bono eligibility or any costs in writing before you commit. No surprise fees.</div>
                 </div>
-                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
-                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">What should I bring or send?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
-                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">Your name + callback number, location/station, names of those detained, photos of summons/notices, and a 2–3 sentence timeline. Use “Send via WhatsApp” on the contact form to forward it instantly.</div>
+                <div class="faq-item reveal border border-white/10 rounded-2xl glass overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-white text-sm sm:text-[15px]">What should I bring or send?</span><span class="faq-chevron text-gold font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-zinc-400 leading-relaxed">Your name + callback number, location/station, names of those detained, photos of summons/notices, and a 2–3 sentence timeline. Use “Send via WhatsApp” on the contact form to forward it instantly.</div>
                 </div>
-                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
-                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">Do you handle matters outside Masaka?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
-                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">Our core reach is Greater Masaka (Masaka, Kalungu, Lwengo, Bukomansimbi) plus Masaka High Court Circuit. Urgent referrals elsewhere are triaged by phone/WhatsApp and referred to trusted partners where appropriate.</div>
+                <div class="faq-item reveal border border-white/10 rounded-2xl glass overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-white text-sm sm:text-[15px]">Do you handle matters outside Masaka?</span><span class="faq-chevron text-gold font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-zinc-400 leading-relaxed">Our core reach is Greater Masaka (Masaka, Kalungu, Lwengo, Bukomansimbi) plus Masaka High Court Circuit. Urgent referrals elsewhere are triaged by phone/WhatsApp and referred to trusted partners where appropriate.</div>
                 </div>
-                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
-                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">Will my identity stay confidential?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
-                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. Communications are handled under Advocate–Client confidentiality. Women defenders and sensitive cases can request confidential intake and use a trusted intermediary to make first contact.</div>
+                <div class="faq-item reveal border border-white/10 rounded-2xl glass overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-white text-sm sm:text-[15px]">Will my identity stay confidential?</span><span class="faq-chevron text-gold font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-zinc-400 leading-relaxed">Yes. Communications are handled under Advocate–Client confidentiality. Women defenders and sensitive cases can request confidential intake and use a trusted intermediary to make first contact.</div>
                 </div>
             </div>
         </div>
@@ -859,12 +909,12 @@
     <!-- ========================================================================= -->
     <!-- VOLUNTEERS & LEGAL INTERNSHIPS (Personally Reviewed by Counsel) -->
     <!-- ========================================================================= -->
-    <section id="careers" class="py-14 sm:py-20 bg-gradient-to-b from-white to-gold-light/30 border-t border-slate-200 scroll-mt-24">
+    <section id="careers" class="py-12 sm:py-20 bg-[#050505] border-t border-white/10 scroll-mt-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="bg-navy rounded-3xl p-6 sm:p-10 lg:p-12 text-white relative overflow-hidden shadow-2xl border border-gold/30">
+            <div class="bg-black rounded-3xl p-6 sm:p-10 lg:p-12 text-white relative overflow-hidden shadow-2xl border border-gold/30">
                 <!-- Decorative background elements -->
                 <div class="absolute -right-16 -top-16 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-royal/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-gold/20 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
                     <!-- Left Content -->
@@ -881,7 +931,7 @@
 
                         <!-- Review Guarantee Callout -->
                         <div class="mt-5 p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm flex items-start gap-3.5">
-                            <div class="w-8 h-8 rounded-full bg-gold text-navy flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+                            <div class="w-8 h-8 rounded-full bg-gold text-black flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
                                 ✍️
                             </div>
                             <div>
@@ -911,39 +961,39 @@
 
                     <!-- Right Application Card -->
                     <div class="lg:col-span-5">
-                        <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-7 shadow-xl border border-slate-100">
-                            <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
-                                <div class="w-10 h-10 rounded-xl bg-gold-light text-navy font-bold flex items-center justify-center text-xl">
+                        <div class="glass text-zinc-200 rounded-2xl p-6 sm:p-7 shadow-xl border border-white/10">
+                            <div class="flex items-center gap-3 pb-4 border-b border-white/10">
+                                <div class="w-10 h-10 rounded-xl bg-gold/15 text-white font-bold flex items-center justify-center text-xl">
                                     📬
                                 </div>
                                 <div>
-                                    <div class="font-serif text-lg font-bold text-navy leading-tight" data-i18n="apply_box_title">Submit Application</div>
-                                    <div class="text-xs text-slate-500" data-i18n="apply_box_sub">Send your letter & resume directly</div>
+                                    <div class="font-serif text-lg font-bold text-white leading-tight" data-i18n="apply_box_title">Submit Application</div>
+                                    <div class="text-xs text-zinc-500" data-i18n="apply_box_sub">Send your letter & resume directly</div>
                                 </div>
                             </div>
 
-                            <div class="py-4 space-y-3 text-xs sm:text-[13px] text-slate-600">
+                            <div class="py-4 space-y-3 text-xs sm:text-[13px] text-zinc-400">
                                 <div class="flex items-start gap-2">
-                                    <span class="text-royal font-bold">1.</span>
+                                    <span class="text-gold font-bold">1.</span>
                                     <span data-i18n="apply_step1">Prepare a 1-page Cover Letter explaining your interest in human rights defense.</span>
                                 </div>
                                 <div class="flex items-start gap-2">
-                                    <span class="text-royal font-bold">2.</span>
+                                    <span class="text-gold font-bold">2.</span>
                                     <span data-i18n="apply_step2">Attach your updated Curriculum Vitae (CV) & academic/CSO credentials.</span>
                                 </div>
                                 <div class="flex items-start gap-2">
-                                    <span class="text-royal font-bold">3.</span>
+                                    <span class="text-gold font-bold">3.</span>
                                     <span data-i18n="apply_step3">Email directly to Lead Counsel's desk for consideration.</span>
                                 </div>
                             </div>
 
-                            <a id="applyEmailBtn" href="mailto:piuskabiswa@gmail.com?subject=Application%3A%20Volunteer%20%2F%20Legal%20Internship%20-%20Masaka%20Consortium&body=Dear%20Advocate%20Kabiswa%20Pius%20Kiryowa%2C%0D%0A%0D%0AI%20am%20writing%20to%20express%20my%20strong%20interest%20in%20volunteering%20%2F%20interning%20with%20the%20Masaka%20Consortium%20for%20Human%20Rights%20Defenders.%0D%0A%0D%0AFull%20Name%3A%20%0D%0APhone%20Number%3A%20%0D%0ACurrent%20Institution%20%2F%20Background%3A%20%0D%0AAvailability%20(Full-time%20%2F%20Part-time)%3A%20%0D%0A%0D%0APlease%20find%20attached%20my%20Cover%20Letter%20and%20Curriculum%20Vitae%20(CV)%20for%20your%20personal%20review.%0D%0A%0D%0AYours%20sincerely%2C" class="mt-2 w-full h-12 bg-navy hover:bg-navy-light text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm transition shadow-md hover-lift">
+                            <a id="applyEmailBtn" href="mailto:piuskabiswa@gmail.com?subject=Application%3A%20Volunteer%20%2F%20Legal%20Internship%20-%20Masaka%20Consortium&body=Dear%20Advocate%20Kabiswa%20Pius%20Kiryowa%2C%0D%0A%0D%0AI%20am%20writing%20to%20express%20my%20strong%20interest%20in%20volunteering%20%2F%20interning%20with%20the%20Masaka%20Consortium%20for%20Human%20Rights%20Defenders.%0D%0A%0D%0AFull%20Name%3A%20%0D%0APhone%20Number%3A%20%0D%0ACurrent%20Institution%20%2F%20Background%3A%20%0D%0AAvailability%20(Full-time%20%2F%20Part-time)%3A%20%0D%0A%0D%0APlease%20find%20attached%20my%20Cover%20Letter%20and%20Curriculum%20Vitae%20(CV)%20for%20your%20personal%20review.%0D%0A%0D%0AYours%20sincerely%2C" class="mt-2 w-full h-12 bg-black hover:bg-zinc-900 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm transition shadow-md hover-lift">
                                 <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                                 <span data-i18n="cta_email_apply">Email Application to Counsel</span>
                             </a>
                             
                             <div class="mt-3 text-center">
-                                <span class="text-[11px] text-slate-500">Destination: <strong class="text-navy">piuskabiswa@gmail.com</strong></span>
+                                <span class="text-[11px] text-zinc-500">Destination: <strong class="text-white">piuskabiswa@gmail.com</strong></span>
                             </div>
                         </div>
                     </div>
@@ -953,7 +1003,7 @@
     </section>
 
     <!-- CONTACT FORM & CASE EVALUATION SECTION -->
-    <section id="contact" class="py-14 sm:py-20 bg-navy relative overflow-hidden text-white">
+    <section id="contact" class="py-12 sm:py-20 bg-black relative overflow-hidden text-white border-t border-gold/20">
         <div class="absolute inset-0 bg-[radial-gradient(80%_80%_at_80%_20%,#185ADB_0%,transparent_60%)] opacity-40"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
             <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
@@ -971,7 +1021,7 @@
                     <div class="mt-6 sm:mt-8 space-y-3.5 text-xs sm:text-sm">
                         <!-- Direct Modal Triggers -->
                         <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition cursor-pointer hover-lift" onclick="openContactModal('whatsapp')">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg flex-shrink-0">💬</div>
+                            <div class="w-10 h-10 rounded-xl bg-emerald-400/100/20 text-emerald-400 flex items-center justify-center text-lg flex-shrink-0">💬</div>
                             <div class="overflow-hidden">
                                 <div class="font-bold text-white">WhatsApp Direct Intake</div>
                                 <div class="text-white/60 text-xs truncate">Click to send pre-filled case brief to Pius</div>
@@ -979,7 +1029,7 @@
                         </div>
 
                         <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition cursor-pointer hover-lift" onclick="openContactModal('call')">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-lg flex-shrink-0">📞</div>
+                            <div class="w-10 h-10 rounded-xl bg-sky-400/100/20 text-blue-400 flex items-center justify-center text-lg flex-shrink-0">📞</div>
                             <div class="overflow-hidden">
                                 <div class="font-bold text-white">+256 750 838511 / +256 788 683102</div>
                                 <div class="text-white/60 text-xs truncate">Emergency calls answered directly by Pius</div>
@@ -1006,39 +1056,39 @@
 
                 <!-- Right Form -->
                 <div class="lg:col-span-7">
-                    <div class="bg-white text-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl border border-slate-100">
+                    <div class="glass text-zinc-200 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl border border-white/10">
                         <div class="mb-5 sm:mb-6">
-                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-navy" data-i18n="form_h3_1">Request Legal Evaluation</h3>
-                            <p class="text-xs sm:text-sm text-slate-500 mt-1" data-i18n="form_h3_2">Fill out details below for prompt review.</p>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-white" data-i18n="form_h3_1">Request Legal Evaluation</h3>
+                            <p class="text-xs sm:text-sm text-zinc-500 mt-1" data-i18n="form_h3_2">Fill out details below for prompt review.</p>
                         </div>
                         
                         <form id="contactForm" class="space-y-3.5 sm:space-y-4">
                             <div class="grid sm:grid-cols-2 gap-3.5">
                                 <div>
-                                    <label class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600" data-i18n="form_name">Your Name *</label>
-                                    <input required type="text" id="formName" data-i18n-placeholder="ph_name" placeholder="e.g. John Ssenyonga" class="mt-1 w-full h-11 px-3.5 rounded-xl border border-slate-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none text-xs sm:text-sm"/>
+                                    <label class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-zinc-400" data-i18n="form_name">Your Name *</label>
+                                    <input required type="text" id="formName" data-i18n-placeholder="ph_name" placeholder="e.g. John Ssenyonga" class="field-dark mt-1 w-full h-11 px-3.5 rounded-xl border border-white/10 focus:border-gold/40 focus:ring-2 focus:ring-gold/20 outline-none text-xs sm:text-sm"/>
                                 </div>
                                 <div>
-                                    <label class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600" data-i18n="form_phone">Phone / WhatsApp *</label>
-                                    <input required type="tel" id="formPhone" placeholder="+256 7XX XXX XXX" class="mt-1 w-full h-11 px-3.5 rounded-xl border border-slate-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none text-xs sm:text-sm"/>
+                                    <label class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-zinc-400" data-i18n="form_phone">Phone / WhatsApp *</label>
+                                    <input required type="tel" id="formPhone" placeholder="+256 7XX XXX XXX" class="field-dark mt-1 w-full h-11 px-3.5 rounded-xl border border-white/10 focus:border-gold/40 focus:ring-2 focus:ring-gold/20 outline-none text-xs sm:text-sm"/>
                                 </div>
                             </div>
                             <div>
-                                <label class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600" data-i18n="form_situation">Category of Concern *</label>
-                                <select required id="situationSelect" class="mt-1 w-full h-11 px-3.5 rounded-xl border border-slate-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none text-xs sm:text-sm bg-white">
+                                <label class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-zinc-400" data-i18n="form_situation">Category of Concern *</label>
+                                <select required id="situationSelect" class="field-dark mt-1 w-full h-11 px-3.5 rounded-xl border border-white/10 focus:border-gold/40 focus:ring-2 focus:ring-gold/20 outline-none text-xs sm:text-sm glass">
                                 </select>
                             </div>
                             <div>
-                                <label class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600" data-i18n="form_brief">Brief Incident Summary</label>
-                                <textarea rows="3" id="formBrief" data-i18n-placeholder="ph_brief" placeholder="Describe the incident (location, who was arrested/threatened, current status)..." class="mt-1 w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none text-xs sm:text-sm resize-none"></textarea>
+                                <label class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-zinc-400" data-i18n="form_brief">Brief Incident Summary</label>
+                                <textarea rows="3" id="formBrief" data-i18n-placeholder="ph_brief" placeholder="Describe the incident (location, who was arrested/threatened, current status)..." class="field-dark mt-1 w-full px-3.5 py-2.5 rounded-xl border border-white/10 focus:border-gold/40 focus:ring-2 focus:ring-gold/20 outline-none text-xs sm:text-sm resize-none"></textarea>
                             </div>
                             <div class="flex items-start gap-2.5 pt-1">
-                                <input type="checkbox" required id="conf" class="mt-0.5 w-4 h-4 rounded border-slate-300 text-royal focus:ring-royal"/>
-                                <label for="conf" class="text-[11px] text-slate-600 leading-snug" data-i18n="form_consent">I consent to confidential handling under Advocate-Client privilege. For urgent emergencies, I will also call immediately.</label>
+                                <input type="checkbox" required id="conf" class="mt-0.5 w-4 h-4 rounded border-white/15 text-gold focus:ring-gold"/>
+                                <label for="conf" class="text-[11px] text-zinc-400 leading-snug" data-i18n="form_consent">I consent to confidential handling under Advocate-Client privilege. For urgent emergencies, I will also call immediately.</label>
                             </div>
                             
                             <div class="pt-2 flex flex-col sm:flex-row gap-2.5">
-                                <button type="submit" class="w-full sm:flex-1 h-12 bg-navy hover:bg-navy-light text-white rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md hover-lift">
+                                <button type="submit" class="w-full sm:flex-1 h-12 bg-black hover:bg-zinc-900 text-white rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md hover-lift">
                                     <span data-i18n="form_submit">Submit For Evaluation</span> →
                                 </button>
                                 
@@ -1049,7 +1099,7 @@
                             </div>
                         </form>
 
-                        <div id="successMsg" class="hidden mt-4 p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-medium">
+                        <div id="successMsg" class="hidden mt-4 p-3.5 rounded-xl bg-emerald-400/10 border border-emerald-400/30 text-emerald-200 text-xs sm:text-sm font-medium">
                             <span data-i18n="success_msg">✅ Thank you. Your inquiry has been submitted. For emergency arrests, please call +256 750 838511 now.</span>
                         </div>
                     </div>
@@ -1060,13 +1110,13 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-[#070F23] text-white py-12 sm:py-16 border-t border-white/10">
+    <footer class="bg-black text-white py-12 sm:py-16 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="grid sm:grid-cols-2 lg:grid-cols-12 gap-8">
                 
                 <div class="lg:col-span-5">
                     <div class="flex items-center gap-2.5">
-                        <div class="w-9 h-9 bg-white text-navy rounded-xl flex items-center justify-center font-serif text-xl shadow-md border border-gold/30">⚖</div>
+                        <div class="w-9 h-9 glass text-white rounded-xl flex items-center justify-center font-serif text-xl shadow-md border border-gold/30">⚖</div>
                         <div>
                             <div class="font-serif text-base sm:text-lg font-bold">MASAKA CONSORTIUM FOR HUMAN RIGHTS DEFENDERS</div>
                             <div class="text-[10px] tracking-wider uppercase text-gold">MACHRID • Masaka City, Uganda</div>
@@ -1114,39 +1164,39 @@
         </div>
     </footer>
 
-    <!-- MOBILE / TABLET FLOATING BOTTOM ACTION BAR -->
-    <div class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 flex items-center gap-2 shadow-2xl">
+    <!-- MOBILE-FIRST FLOATING BOTTOM ACTION BAR — black glass -->
+    <div class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-black/85 backdrop-blur-2xl border-t border-white/10 p-2.5 flex items-center gap-2 shadow-[0_-8px_40px_rgba(0,0,0,.8)]" style="padding-bottom: calc(0.625rem + env(safe-area-inset-bottom));">
         <button onclick="openContactModal('whatsapp')" class="flex-1 h-12 bg-emerald-600 active:bg-emerald-700 text-white rounded-xl flex items-center justify-center gap-2 font-bold text-xs shadow-sm">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.545 1.769.816 2.796.816 3.179 0 5.767-2.587 5.767-5.768 0-3.181-2.588-5.766-5.767-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.69 0-3.277-.42-4.667-1.163l-5.333 1.397 1.424-5.203c-.881-1.488-1.424-3.224-1.424-5.031 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/></svg>
             <span>WhatsApp</span>
         </button>
         
-        <a href="tel:+256750838511" class="flex-1 h-12 bg-navy active:bg-navy-light text-white rounded-xl flex items-center justify-center gap-1.5 font-bold text-xs shadow-sm">
+        <a href="tel:+256750838511" class="flex-1 h-12 bg-black active:bg-zinc-900 text-white rounded-xl flex items-center justify-center gap-1.5 font-bold text-xs shadow-sm">
             <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"/></svg>
             <span data-i18n="mobile_call">Call Direct</span>
         </a>
 
-        <button onclick="openContactModal('general')" class="w-12 h-12 bg-slate-100 active:bg-slate-200 border border-slate-300 rounded-xl flex items-center justify-center text-slate-700" title="More contact channels">
+        <button onclick="openContactModal('general')" class="w-12 h-12 bg-white/5 active:bg-white/15 border border-white/15 rounded-xl flex items-center justify-center text-zinc-300" title="More contact channels">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
         </button>
     </div>
 
-    <button id="backToTop" aria-label="Back to top" class="hidden md:flex fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-navy text-gold shadow-xl border border-gold/30 items-center justify-center hover:bg-navy-light">↑</button>
+    <button id="backToTop" aria-label="Back to top" class="hidden md:flex fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-black text-gold shadow-xl border border-gold/30 items-center justify-center hover:bg-zinc-900">↑</button>
 
     <!-- ========================================================================= -->
     <!-- DETAILED CONTACT & EMERGENCY INTAKE MODAL (WhatsApp, Direct Call, Email)  -->
     <!-- ========================================================================= -->
     <div id="contactModal" class="fixed inset-0 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4" aria-modal="true" role="dialog">
         <!-- Backdrop -->
-        <div class="fixed inset-0 bg-navy/80 backdrop-blur-sm transition-opacity" onclick="closeContactModal()"></div>
+        <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeContactModal()"></div>
 
         <!-- Modal Content Container -->
-        <div class="relative bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden modal-animate-enter max-h-[92vh] flex flex-col z-10">
+        <div class="relative w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl border border-gold/25 overflow-hidden modal-animate-enter max-h-[92vh] flex flex-col z-10 bg-[#0C0C0E]/95 backdrop-blur-2xl">
             
             <!-- Modal Header -->
-            <div class="bg-navy text-white px-5 sm:px-6 py-4 flex items-center justify-between flex-shrink-0 border-b border-white/10">
+            <div class="bg-black text-white px-5 sm:px-6 py-4 flex items-center justify-between flex-shrink-0 border-b border-white/10">
                 <div class="flex items-center gap-2.5">
-                    <div class="w-8 h-8 rounded-lg bg-royal flex items-center justify-center text-white text-base">⚖</div>
+                    <div class="w-8 h-8 rounded-lg bg-gold flex items-center justify-center text-white text-base">⚖</div>
                     <div>
                         <h3 class="font-serif text-lg sm:text-xl font-bold leading-tight" data-i18n="modal_title">Contact Advocate Directly</h3>
                         <p class="text-[11px] text-white/70" data-i18n="modal_subtitle">Advocate Kabiswa Pius Kiryowa • Masaka City</p>
@@ -1162,10 +1212,10 @@
                 
                 <!-- Quick Incident Selector for pre-filling dynamic links -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5" data-i18n="modal_select_label">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-1.5" data-i18n="modal_select_label">
                         Select Situation for Pre-filled Link:
                     </label>
-                    <select id="modalScenarioSelect" onchange="updateModalLinks()" class="w-full h-10 px-3 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium bg-slate-50 focus:bg-white focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none">
+                    <select id="modalScenarioSelect" onchange="updateModalLinks()" class="field-dark w-full h-10 px-3 rounded-xl border border-white/15 text-xs sm:text-sm font-medium bg-white/5 focus:bg-white/10 focus:border-gold/40 focus:ring-2 focus:ring-gold/20 outline-none">
                         <option value="arrest">🚨 Emergency Police Arrest / Detention</option>
                         <option value="journalist">📰 Journalist Harassment / Equipment Seized</option>
                         <option value="land">🌍 Threat of Illegal Land Eviction</option>
@@ -1180,81 +1230,81 @@
                 <div class="space-y-2.5">
                     
                     <!-- 1. WHATSAPP -->
-                    <a id="modalWhatsAppBtn" href="#" target="_blank" class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-emerald-50 border border-emerald-200 hover:border-emerald-400 hover:bg-emerald-100/70 transition group hover-lift">
+                    <a id="modalWhatsAppBtn" href="#" target="_blank" class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-emerald-400/10 border border-emerald-400/30 hover:border-emerald-400 hover:bg-emerald-400/20 transition group hover-lift">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
                                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.545 1.769.816 2.796.816 3.179 0 5.767-2.587 5.767-5.768 0-3.181-2.588-5.766-5.767-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.69 0-3.277-.42-4.667-1.163l-5.333 1.397 1.424-5.203c-.881-1.488-1.424-3.224-1.424-5.031 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/></svg>
                             </div>
                             <div>
-                                <div class="font-bold text-navy text-xs sm:text-sm flex items-center gap-1.5">
+                                <div class="font-bold text-white text-xs sm:text-sm flex items-center gap-1.5">
                                     <span data-i18n="modal_wa_title">WhatsApp Advocate Pius</span>
                                     <span class="text-[10px] font-bold px-2 py-0.2 rounded-full bg-emerald-200 text-emerald-900">Fastest</span>
                                 </div>
-                                <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="modal_wa_desc">Send pre-formatted case details instantly</p>
+                                <p class="text-[11px] text-zinc-500 mt-0.5" data-i18n="modal_wa_desc">Send pre-formatted case details instantly</p>
                             </div>
                         </div>
-                        <span class="text-emerald-700 font-bold text-base group-hover:translate-x-1 transition">→</span>
+                        <span class="text-emerald-300 font-bold text-base group-hover:translate-x-1 transition">→</span>
                     </a>
 
                     <!-- 2. DIRECT CALL (Primary) -->
-                    <a href="tel:+256750838511" class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-blue-50 border border-blue-200 hover:border-royal hover:bg-blue-100/70 transition group hover-lift">
+                    <a href="tel:+256750838511" class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-sky-400/10 border border-sky-400/30 hover:border-gold/40 hover:bg-sky-400/20 transition group hover-lift">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-navy text-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-black text-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
                                 📞
                             </div>
                             <div>
-                                <div class="font-bold text-navy text-xs sm:text-sm flex items-center gap-1.5">
+                                <div class="font-bold text-white text-xs sm:text-sm flex items-center gap-1.5">
                                     <span>Direct Phone 1 (24/7 Hotline)</span>
                                 </div>
-                                <div class="text-[11px] font-semibold text-royal mt-0.5">+256 750 838511</div>
+                                <div class="text-[11px] font-semibold text-gold mt-0.5">+256 750 838511</div>
                             </div>
                         </div>
-                        <span class="text-royal font-bold text-base group-hover:translate-x-1 transition">→</span>
+                        <span class="text-gold font-bold text-base group-hover:translate-x-1 transition">→</span>
                     </a>
 
                     <!-- 3. DIRECT CALL (Secondary Backup) -->
-                    <a href="tel:+256788683102" class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-400 hover:bg-slate-100 transition group hover-lift">
+                    <a href="tel:+256788683102" class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/5 transition group hover-lift">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-slate-700 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-zinc-700 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
                                 📱
                             </div>
                             <div>
-                                <div class="font-bold text-navy text-xs sm:text-sm">Direct Phone 2 (Alternative)</div>
-                                <div class="text-[11px] font-semibold text-slate-700 mt-0.5">+256 788 683102</div>
+                                <div class="font-bold text-white text-xs sm:text-sm">Direct Phone 2 (Alternative)</div>
+                                <div class="text-[11px] font-semibold text-zinc-300 mt-0.5">+256 788 683102</div>
                             </div>
                         </div>
-                        <span class="text-slate-700 font-bold text-base group-hover:translate-x-1 transition">→</span>
+                        <span class="text-zinc-300 font-bold text-base group-hover:translate-x-1 transition">→</span>
                     </a>
 
                     <!-- 4. EMAIL (Pre-filled Subject & Body) -->
-                    <a id="modalEmailBtn" href="#" class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-amber-50/70 border border-amber-200 hover:border-amber-400 hover:bg-amber-100/70 transition group hover-lift">
+                    <a id="modalEmailBtn" href="#" class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-gold/10 border border-gold/30 hover:border-gold/50 hover:bg-gold/20 transition group hover-lift">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-600 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gold text-black flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
                                 ✉️
                             </div>
                             <div>
-                                <div class="font-bold text-navy text-xs sm:text-sm" data-i18n="modal_email_title">Send Formal Email Intake</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">piuskabiswa@gmail.com</div>
+                                <div class="font-bold text-white text-xs sm:text-sm" data-i18n="modal_email_title">Send Formal Email Intake</div>
+                                <div class="text-[11px] text-zinc-500 mt-0.5">piuskabiswa@gmail.com</div>
                             </div>
                         </div>
-                        <span class="text-amber-800 font-bold text-base group-hover:translate-x-1 transition">→</span>
+                        <span class="text-gold font-bold text-base group-hover:translate-x-1 transition">→</span>
                     </a>
 
                 </div>
 
                 <!-- Office Chambers Info -->
-                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-600 flex items-start gap-2">
+                <div class="p-3 bg-white/5 rounded-xl border border-white/10 text-[11px] text-zinc-400 flex items-start gap-2">
                     <span class="text-base leading-none">📍</span>
                     <div>
-                        <span class="font-bold text-navy">Physical Chambers:</span> Lugave House, 1st Floor, Elgon Street, Masaka City (Opposite UMEME offices).
+                        <span class="font-bold text-white">Physical Chambers:</span> Lugave House, 1st Floor, Elgon Street, Masaka City (Opposite UMEME offices).
                     </div>
                 </div>
             </div>
 
             <!-- Modal Footer -->
-            <div class="bg-slate-100 px-5 py-3 border-t border-slate-200 flex justify-between items-center text-xs">
-                <span class="text-slate-500 text-[11px]">Strict Legal Privilege & Confidentiality</span>
-                <button onclick="closeContactModal()" class="font-bold text-navy hover:underline">Close</button>
+            <div class="bg-white/5 px-5 py-3 border-t border-white/10 flex justify-between items-center text-xs">
+                <span class="text-zinc-500 text-[11px]">Strict Legal Privilege & Confidentiality</span>
+                <button onclick="closeContactModal()" class="font-bold text-white hover:underline">Close</button>
             </div>
         </div>
     </div>
@@ -1550,11 +1600,11 @@
             // Sync visual states on language toggles
             document.querySelectorAll('[data-lang-btn]').forEach(btn => {
                 const isActive = btn.getAttribute('data-lang-btn') === lang;
-                btn.className = isActive ? 'lang-pill px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider bg-white text-navy shadow-sm' : 'lang-pill px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider text-white/80 hover:text-white';
+                btn.className = isActive ? 'lang-pill px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider bg-gold text-black shadow-sm' : 'lang-pill px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider text-white/80 hover:text-white';
             });
             document.querySelectorAll('[data-lang-btn-m]').forEach(btn => {
                 const isActive = btn.getAttribute('data-lang-btn-m') === lang;
-                btn.className = isActive ? 'px-3 py-1 rounded-full text-xs font-bold bg-navy text-white transition' : 'px-3 py-1 rounded-full text-xs font-bold text-slate-600 transition';
+                btn.className = isActive ? 'px-3 py-1 rounded-full text-xs font-bold bg-gold text-black transition' : 'px-3 py-1 rounded-full text-xs font-bold text-zinc-400 transition';
             });
 
             // Update application button URL with localized draft
@@ -1816,8 +1866,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Rights EN/LG placeholder toggle
             const tabs = document.querySelectorAll('[data-rights-tab]');
             tabs.forEach(tab => tab.addEventListener('click', () => {
-                tabs.forEach(t => { t.classList.remove('chip-active'); t.classList.add('text-slate-600'); });
-                tab.classList.add('chip-active'); tab.classList.remove('text-slate-600');
+                tabs.forEach(t => { t.classList.remove('chip-active'); t.classList.add('text-zinc-400'); });
+                tab.classList.add('chip-active'); tab.classList.remove('text-zinc-400');
                 const lang = tab.getAttribute('data-rights-tab');
                 document.querySelectorAll('[data-rights-en]').forEach(el => el.classList.toggle('hidden', lang !== 'en'));
                 document.querySelectorAll('[data-rights-lg]').forEach(el => el.classList.toggle('hidden', lang !== 'lg'));
