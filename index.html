@@ -26,10 +26,15 @@
     <meta name="twitter:description" content="Empowering vulnerable communities through provision of quality legal services" />
     <meta name="twitter:image" content="https://alijinie.github.io/Masaka-Consortium-for-Human-Rights-Defenders/77.jpg" />
     
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A1931'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23C8A951'%3E%E2%9A%96%3C/text%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#0A1931" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Attorney","name":"Masaka Consortium for Human Rights Defenders","founder":{"@type":"Person","name":"Kabiswa Pius Kiryowa"},"address":{"@type":"PostalAddress","streetAddress":"Lugave House, Elgon Street","addressLocality":"Masaka City","addressCountry":"UG"},"telephone":"+256750838511","email":"piuskabiswa@gmail.com","areaServed":"Greater Masaka","priceRange":"Free evaluation for HRDs at risk"}
+    </script>
     
     <script>
         tailwind.config = {
@@ -103,9 +108,35 @@
         .hover-lift:hover {
             transform: translateY(-2px);
         }
+        /* ---- Modern polish additions ---- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #F7F5F2; }
+        ::-webkit-scrollbar-thumb { background: #0A1931; border-radius: 8px; border: 2px solid #F7F5F2; }
+        ::-webkit-scrollbar-thumb:hover { background: #185ADB; }
+        #scrollProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 60;
+            background: linear-gradient(90deg, #C8A951, #185ADB); transition: width .1s linear; }
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+        .card-ring { position: relative; }
+        .card-ring::after { content:""; position:absolute; inset:0; border-radius:1rem; pointer-events:none;
+            box-shadow: 0 0 0 0 rgba(24,90,219,0); transition: box-shadow .25s ease; }
+        .card-ring:focus-within::after, .card-ring:hover::after { box-shadow: 0 0 0 3px rgba(24,90,219,.15); }
+        .faq-answer { display:none; }
+        .faq-item.open .faq-answer { display:block; }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); }
+        .faq-chevron { transition: transform .25s ease; }
+        .chip-active { background:#0A1931 !important; color:#fff !important; border-color:#0A1931 !important; }
+        #backToTop { opacity:0; pointer-events:none; transition: opacity .3s ease, transform .3s ease; transform: translateY(8px); }
+        #backToTop.show { opacity:1; pointer-events:auto; transform:none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity:1; transform:none; transition:none; }
+            .animate-marquee { animation: none !important; }
+        }
     </style>
 </head>
 <body class="bg-paper font-sans text-slate-800 antialiased selection:bg-royal selection:text-white pb-24 lg:pb-0" data-lang-active="en">
+    <div id="scrollProgress" aria-hidden="true"></div>
+    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[70] focus:bg-navy focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
 
     <!-- Top Emergency Bar -->
     <div class="bg-navy text-white text-[11px] sm:text-[12px] md:text-[13px] tracking-wide border-b border-white/10 relative z-50">
@@ -147,10 +178,13 @@
                 </div>
             </a>
             
-            <nav class="hidden xl:flex items-center gap-6 text-[14px] font-semibold text-slate-700">
-                <a href="#practices" class="hover:text-royal transition py-1" data-i18n="nav_practice">Practice Areas</a>
-                <a href="#who-we-help" class="hover:text-royal transition py-1" data-i18n="nav_who">Who We Help</a>
-                <a href="#team" class="hover:text-royal transition py-1" data-i18n="nav_advocate">Our Advocate</a>
+            <nav class="hidden xl:flex items-center gap-6 text-[14px] font-semibold text-slate-700" aria-label="Primary">
+                <a href="#practices" class="hover:text-royal transition py-1" data-nav="practices" data-i18n="nav_practice">Practice Areas</a>
+                <a href="#who-we-help" class="hover:text-royal transition py-1" data-nav="who-we-help" data-i18n="nav_who">Who We Help</a>
+                <a href="#process" class="hover:text-royal transition py-1">How It Works</a>
+                <a href="#rights" class="hover:text-royal transition py-1">Your Rights</a>
+                <a href="#faq" class="hover:text-royal transition py-1">FAQ</a>
+                <a href="#team" class="hover:text-royal transition py-1" data-nav="team" data-i18n="nav_advocate">Our Advocate</a>
                 <a href="#careers" class="hover:text-royal text-navy flex items-center gap-1.5 transition py-1">
                     <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
                     <span data-i18n="nav_careers">Internships & Volunteers</span>
@@ -191,6 +225,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-1 py-2 text-sm font-semibold text-slate-700">
                 <a href="#practices" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition" data-i18n="nav_practice">Practice Areas</a>
                 <a href="#who-we-help" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition" data-i18n="nav_who">Who We Help</a>
+                <a href="#process" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition">How It Works</a>
+                <a href="#rights" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition">Your Rights</a>
+                <a href="#faq" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition">FAQ</a>
                 <a href="#team" class="py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-royal transition" data-i18n="nav_advocate">Our Advocate</a>
                 <a href="#careers" class="py-2.5 px-3 rounded-lg bg-gold-light/60 text-navy font-bold hover:bg-gold-light transition" data-i18n="nav_careers">Internships & Volunteers</a>
             </div>
@@ -232,16 +269,30 @@
                     <!-- Proof Stats Strip -->
                     <div class="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-6 border-y border-white/15 py-4 sm:py-5 max-w-lg">
                         <div class="text-center sm:text-left">
-                            <div class="font-serif text-2xl xs:text-3xl sm:text-[32px] font-bold leading-none text-white">500+</div>
+                            <div class="font-serif text-2xl xs:text-3xl sm:text-[32px] font-bold leading-none text-white"><span data-count="500">500</span>+</div>
                             <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/70 mt-1" data-i18n="proof1">Defenders<br/>Protected</div>
                         </div>
                         <div class="text-center sm:text-left border-x border-white/10 px-2 sm:px-0">
-                            <div class="font-serif text-2xl xs:text-3xl sm:text-[32px] font-bold leading-none text-gold">94%</div>
+                            <div class="font-serif text-2xl xs:text-3xl sm:text-[32px] font-bold leading-none text-gold"><span data-count="94">94</span>%</div>
                             <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/70 mt-1" data-i18n="proof2">Cases<br/>Resolved</div>
                         </div>
                         <div class="text-center sm:text-left">
                             <div class="font-serif text-2xl xs:text-3xl sm:text-[32px] font-bold leading-none text-white">24/7</div>
                             <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/70 mt-1" data-i18n="proof3">Emergency<br/>Response</div>
+                        </div>
+                    </div>
+
+                    <!-- Trust row: placeholder avatars + rating (no new file paths) -->
+                    <div class="mt-4 flex flex-wrap items-center gap-3">
+                        <div class="flex -space-x-2" aria-hidden="true">
+                            <span class="w-8 h-8 rounded-full bg-gold text-navy text-[11px] font-extrabold flex items-center justify-center border-2 border-[#122a5c]">PN</span>
+                            <span class="w-8 h-8 rounded-full bg-white text-navy text-[11px] font-extrabold flex items-center justify-center border-2 border-[#122a5c]">DM</span>
+                            <span class="w-8 h-8 rounded-full bg-emerald-400 text-navy text-[11px] font-extrabold flex items-center justify-center border-2 border-[#122a5c]">SK</span>
+                            <span class="w-8 h-8 rounded-full bg-navy-light text-gold text-[11px] font-extrabold flex items-center justify-center border-2 border-white/40">80+</span>
+                        </div>
+                        <div class="text-xs text-white/80">
+                            <span class="text-gold tracking-tight" aria-label="Rated 4.9 out of 5">★★★★★</span>
+                            <span class="font-semibold text-white">4.9/5</span> from defenders & CSOs • Free first evaluation
                         </div>
                     </div>
 
@@ -389,9 +440,9 @@
     </section>
 
     <!-- PRACTICE SPECIFIC SECTION -->
-    <section id="practices" class="py-14 sm:py-20 bg-white">
+    <section id="practices" class="py-14 sm:py-20 bg-white scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="max-w-2xl">
+            <div class="max-w-2xl reveal">
                 <div class="text-xs tracking-[0.2em] uppercase font-bold text-royal" data-i18n="practice_badge">Practice Specific Defense</div>
                 <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-navy mt-2 text-balance font-bold" data-i18n="practice_h2">
                     Dedicated defense tailored for defenders and community champions.
@@ -399,9 +450,17 @@
                 <p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed" data-i18n="practice_p">
                     Click any practice area below to connect instantly via WhatsApp, Phone, or direct evaluation.
                 </p>
+                <div class="mt-5 flex flex-col sm:flex-row gap-3">
+                    <label class="relative flex-1 max-w-md">
+                        <span class="sr-only">Filter practice areas</span>
+                        <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+                        <input id="practiceSearch" type="search" placeholder="Filter: e.g. arrest, land, journalist… (placeholder)" class="w-full h-11 pl-10 pr-4 rounded-full border border-slate-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none text-sm bg-slate-50 focus:bg-white" />
+                    </label>
+                    <p id="practiceCount" class="text-xs text-slate-500 self-center" aria-live="polite"></p>
+                </div>
             </div>
 
-            <div class="mt-8 sm:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div id="practiceGrid" class="mt-8 sm:mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <!-- Practice 1 -->
                 <div class="p-6 rounded-2xl border border-slate-200 hover:border-royal hover:shadow-xl transition-all duration-300 bg-white flex flex-col justify-between group">
                     <div>
@@ -651,10 +710,156 @@
 
 
 
+    <!-- ================= HOW IT WORKS / EMERGENCY PROTOCOL ================= -->
+    <section id="process" class="py-14 sm:py-20 bg-white border-t border-slate-100 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="max-w-2xl reveal">
+                <div class="text-xs tracking-[0.2em] uppercase font-bold text-royal">Emergency Protocol • How It Works</div>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-navy mt-2">Arrested or threatened? Do this in the next 10 minutes.</h2>
+                <p class="mt-3 text-sm sm:text-base text-slate-600">Designed for low-bandwidth, high-stress moments. No account, no booking system — just direct human contact. Placeholders show where live wait-times or intake stats can plug in later.</p>
+            </div>
+            <ol class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <li class="reveal p-5 rounded-2xl border border-slate-200 bg-slate-50 card-ring">
+                    <div class="w-9 h-9 rounded-full bg-navy text-gold font-extrabold flex items-center justify-center">1</div>
+                    <h3 class="font-bold text-navy mt-3 text-sm sm:text-base">Stay calm & stay silent</h3>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed">Do not argue or sign anything. Politely state: “I wish to contact my lawyer.” Note officer name, station & time if safe.</p>
+                    <p class="mt-3 text-[11px] font-semibold text-slate-500 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5">Say: “Nkwagala okuyita ku munnamateeka wange.” (I want to call my lawyer.)</p>
+                </li>
+                <li class="reveal p-5 rounded-2xl border border-emerald-200 bg-emerald-50/60 card-ring">
+                    <div class="w-9 h-9 rounded-full bg-emerald-600 text-white font-extrabold flex items-center justify-center">2</div>
+                    <h3 class="font-bold text-navy mt-3 text-sm sm:text-base">Tap Quick Connect</h3>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed">One tap opens WhatsApp with a pre-filled emergency brief, or calls Pius directly. Share location + station name.</p>
+                    <button onclick="openContactModal('emergency')" class="mt-3 w-full h-10 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition">Open emergency options →</button>
+                </li>
+                <li class="reveal p-5 rounded-2xl border border-slate-200 bg-slate-50 card-ring">
+                    <div class="w-9 h-9 rounded-full bg-royal text-white font-extrabold flex items-center justify-center">3</div>
+                    <h3 class="font-bold text-navy mt-3 text-sm sm:text-base">We intervene at the station</h3>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed">We push for police bond, document injuries/threats, and stop coerced statements. Central Masaka reach in minutes.</p>
+                    <p class="mt-3 text-[11px] text-slate-500">Avg. station reach (placeholder): <strong class="text-navy">~15–30 min</strong> in Masaka City</p>
+                </li>
+                <li class="reveal p-5 rounded-2xl border border-gold/40 bg-gold-light/60 card-ring">
+                    <div class="w-9 h-9 rounded-full bg-gold text-navy font-extrabold flex items-center justify-center">4</div>
+                    <h3 class="font-bold text-navy mt-3 text-sm sm:text-base">Follow-up & court cover</h3>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed">Bond follow-up, file review, magistrate/high-court representation, plus safety planning for ongoing threats.</p>
+                    <a href="#contact" class="mt-3 inline-flex w-full h-10 rounded-xl bg-navy hover:bg-navy-light text-white text-xs font-bold items-center justify-center transition">Get free evaluation →</a>
+                </li>
+            </ol>
+            <div class="mt-6 flex flex-wrap gap-2 text-[11px]">
+                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 font-semibold text-slate-600">No fee to ask for help</span>
+                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 font-semibold text-slate-600">Luganda • English • Swahili</span>
+                <span class="px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 font-semibold text-slate-600">Confidential under Advocate–Client privilege</span>
+                <span class="px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 font-semibold text-amber-800">Live status widget placeholder</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= KNOW YOUR RIGHTS ================= -->
+    <section id="rights" class="py-14 sm:py-20 bg-[#F7F5F2] border-y border-slate-200 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 reveal">
+                <div class="max-w-2xl">
+                    <div class="text-xs tracking-[0.2em] uppercase font-bold text-royal">Know Your Rights • Uganda</div>
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-navy mt-2">What police & communities must respect.</h2>
+                    <p class="mt-3 text-sm sm:text-base text-slate-600">General information only — not legal advice. For urgent cases, always call. Luganda summaries included for accessibility.</p>
+                </div>
+                <div class="flex gap-2" role="tablist" aria-label="Rights language">
+                    <button class="rights-tab chip-active px-4 h-10 rounded-full border border-slate-300 text-xs font-bold bg-white" data-rights-tab="en">English</button>
+                    <button class="rights-tab px-4 h-10 rounded-full border border-slate-300 text-xs font-bold bg-white text-slate-600" data-rights-tab="lg">Luganda (placeholder)</button>
+                </div>
+            </div>
+            <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                    <div class="text-2xl">🚔</div>
+                    <h3 class="font-bold text-navy mt-2">48-hour rule & police bond</h3>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>A suspect must be produced in court within 48 hours or released on bond. You may apply for police bond; denial must be justified and can be challenged.</p>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Omuzira ateekwa okutwalibwa mu kkooti mu ssaawa 48 oba ayimbulwe ku bondi. (Placeholder Luganda summary.)</p>
+                    <button onclick="openContactModal('arrest')" class="mt-3 text-xs font-bold text-royal hover:text-navy">Detained now? Get help →</button>
+                </article>
+                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                    <div class="text-2xl">🤫</div>
+                    <h3 class="font-bold text-navy mt-2">Right to remain silent</h3>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>You are not obliged to answer incriminating questions or sign statements without counsel. Ask for your lawyer and a witness present.</p>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Oli n'eddembe okusirika okutuusa munnamateeka wo lw'atuuka. (Placeholder Luganda summary.)</p>
+                    <a href="#faq" class="mt-3 inline-block text-xs font-bold text-royal hover:text-navy">What to say at the station →</a>
+                </article>
+                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                    <div class="text-2xl">📰</div>
+                    <h3 class="font-bold text-navy mt-2">Documenting & journalism</h3>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>Peaceful monitoring and reporting are protected civic activity. Seizure of cameras/phones must follow due process — record badge numbers and demand a receipt.</p>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Okukwata ebifaananyi n'okulondoola mu mirembe kikuumibwa. Saba risiti. (Placeholder.)</p>
+                    <button onclick="openContactModal('journalist')" class="mt-3 text-xs font-bold text-royal hover:text-navy">Equipment seized? Act fast →</button>
+                </article>
+                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                    <div class="text-2xl">🌍</div>
+                    <h3 class="font-bold text-navy mt-2">Land evictions need orders</h3>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>No lawful eviction without a valid court order and due notice. Photograph notices, keep land documents safe, and seek an injunction urgently.</p>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Tewali kugoba kwa mateeka awatali ekiragiro kya kkooti. Kuuma ebbaluwa. (Placeholder.)</p>
+                    <button onclick="openContactModal('land')" class="mt-3 text-xs font-bold text-royal hover:text-navy">Threatened with eviction? →</button>
+                </article>
+                <article class="reveal bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm card-ring">
+                    <div class="text-2xl">🛡️</div>
+                    <h3 class="font-bold text-navy mt-2">Safety for women defenders</h3>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed" data-rights-en>Threats, digital harassment and SGBV retaliation can be reported confidentially. Survivor-centred intake; shelter referrals where available (placeholder list).</p>
+                    <p class="text-xs sm:text-[13px] text-slate-600 mt-1.5 leading-relaxed hidden" data-rights-lg>Okutiisibwatiisibwa kunoonyezebwa mu kyama. (Placeholder.)</p>
+                    <button onclick="openContactModal('whrd')" class="mt-3 text-xs font-bold text-royal hover:text-navy">Request confidential help →</button>
+                </article>
+                <article class="reveal bg-navy text-white p-5 sm:p-6 rounded-2xl border border-white/10 shadow-xl card-ring">
+                    <div class="text-2xl">📸</div>
+                    <h3 class="font-bold mt-2">If you can, preserve evidence</h3>
+                    <ul class="text-xs sm:text-[13px] text-white/80 mt-2 space-y-1.5 leading-relaxed list-disc pl-4">
+                        <li>Names, time, place, badge/vehicle numbers</li>
+                        <li>Photos of injuries, notices, seizures (back up off-phone)</li>
+                        <li>Send a copy to a trusted contact + to counsel</li>
+                    </ul>
+                    <p class="mt-3 text-[11px] text-white/60">Evidence checklist PDF / hotline card placeholder — can link a file here later.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= IMPACT + FAQ ================= -->
+    <section id="faq" class="py-14 sm:py-20 bg-white border-b border-slate-100 scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-5 reveal">
+                <div class="text-xs tracking-[0.2em] uppercase font-bold text-royal">Impact & Answers</div>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-navy mt-2">Clear answers before you call.</h2>
+                <div class="mt-6 grid grid-cols-2 gap-3">
+                    <div class="p-4 rounded-2xl bg-gold-light/70 border border-gold/30"><div class="font-serif text-2xl font-bold text-navy"><span data-count="12">12</span>+ yrs</div><div class="text-[11px] font-bold text-navy/70 uppercase tracking-wide mt-1">In Masaka since 2012</div></div>
+                    <div class="p-4 rounded-2xl bg-royal-light/60 border border-royal/20"><div class="font-serif text-2xl font-bold text-navy"><span data-count="80">80</span>+</div><div class="text-[11px] font-bold text-navy/70 uppercase tracking-wide mt-1">CSOs served</div></div>
+                    <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200"><div class="font-serif text-2xl font-bold text-navy"><span data-count="4">4</span> districts</div><div class="text-[11px] font-bold text-navy/70 uppercase tracking-wide mt-1">Masaka • Kalungu • Lwengo • Bukomansimbi</div></div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200"><div class="font-serif text-2xl font-bold text-navy">EN / LG</div><div class="text-[11px] font-bold text-navy/70 uppercase tracking-wide mt-1">+ Swahili intake</div></div>
+                </div>
+                <div class="mt-5 p-4 rounded-2xl bg-navy text-white text-xs leading-relaxed">Not sure where you fall? Use the <a href="#contact" class="text-gold font-bold underline">free evaluation form</a> — select the closest category and describe what happened. Urgent? Call <a class="font-bold text-white underline" href="tel:+256750838511">+256 750 838511</a> first.</div>
+            </div>
+            <div class="lg:col-span-7 space-y-3" id="faqList">
+                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">How fast can you reach a police station?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">We are based at Lugave House, Elgon Street — minutes from Masaka CPS and courts. In the city this is often 15–30 minutes depending on time of day (placeholder estimate). Outside Masaka we coordinate by phone immediately and travel where needed.</div>
+                </div>
+                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">Is the first consultation really free?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">Yes — initial evaluation for human-rights defenders at risk is free and confidential. If a matter needs sustained litigation, we explain pro-bono eligibility or any costs in writing before you commit. No surprise fees.</div>
+                </div>
+                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">What should I bring or send?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">Your name + callback number, location/station, names of those detained, photos of summons/notices, and a 2–3 sentence timeline. Use “Send via WhatsApp” on the contact form to forward it instantly.</div>
+                </div>
+                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">Do you handle matters outside Masaka?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">Our core reach is Greater Masaka (Masaka, Kalungu, Lwengo, Bukomansimbi) plus Masaka High Court Circuit. Urgent referrals elsewhere are triaged by phone/WhatsApp and referred to trusted partners where appropriate.</div>
+                </div>
+                <div class="faq-item reveal border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left" aria-expanded="false"><span class="font-bold text-navy text-sm sm:text-[15px]">Will my identity stay confidential?</span><span class="faq-chevron text-royal font-bold">⌄</span></button>
+                    <div class="faq-answer px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. Communications are handled under Advocate–Client confidentiality. Women defenders and sensitive cases can request confidential intake and use a trusted intermediary to make first contact.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ========================================================================= -->
-    <!-- NEW SECTION: VOLUNTEERS & LEGAL INTERNSHIPS (Personally Reviewed by Counsel) -->
+    <!-- VOLUNTEERS & LEGAL INTERNSHIPS (Personally Reviewed by Counsel) -->
     <!-- ========================================================================= -->
-    <section id="careers" class="py-14 sm:py-20 bg-gradient-to-b from-white to-gold-light/30 border-t border-slate-200">
+    <section id="careers" class="py-14 sm:py-20 bg-gradient-to-b from-white to-gold-light/30 border-t border-slate-200 scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="bg-navy rounded-3xl p-6 sm:p-10 lg:p-12 text-white relative overflow-hidden shadow-2xl border border-gold/30">
                 <!-- Decorative background elements -->
@@ -896,7 +1101,13 @@
 
             </div>
 
-            <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-white/50 text-center sm:text-left">
+            <div class="mt-8 grid sm:grid-cols-3 gap-3 text-[11px]">
+                <a href="#process" class="px-3 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition text-white/80">→ Emergency protocol: what to do in 10 minutes</a>
+                <a href="#rights" class="px-3 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition text-white/80">→ Know your rights at arrest & eviction</a>
+                <a href="#faq" class="px-3 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition text-white/80">→ Fees, speed & confidentiality answers</a>
+            </div>
+            <p class="mt-6 text-[11px] leading-relaxed text-white/40 max-w-3xl">General information only, not legal advice. Every matter is fact-specific — contact counsel directly for guidance on your situation. Placeholders mark where filings, fee notes, or referral lists can be linked later without changing page structure.</p>
+            <div class="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-white/50 text-center sm:text-left">
                 <span>© 2026 MASAKA CONSORTIUM FOR HUMAN RIGHTS DEFENDERS. All rights reserved.</span>
                 <span>Advocate Kabiswa Pius Kiryowa • Masaka City</span>
             </div>
@@ -919,6 +1130,8 @@
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
         </button>
     </div>
+
+    <button id="backToTop" aria-label="Back to top" class="hidden md:flex fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-navy text-gold shadow-xl border border-gold/30 items-center justify-center hover:bg-navy-light">↑</button>
 
     <!-- ========================================================================= -->
     <!-- DETAILED CONTACT & EMERGENCY INTAKE MODAL (WhatsApp, Direct Call, Email)  -->
@@ -1518,7 +1731,102 @@ document.addEventListener("DOMContentLoaded", () => {
         // Init on DOM load
         document.addEventListener('DOMContentLoaded', () => {
             setLang(currentLang);
+            initPolish();
         });
+
+        // ---- Modern polish JS: reveal, progress, counters, FAQ, filter, rights tabs ----
+        function initPolish() {
+            // Scroll progress + back-to-top
+            const prog = document.getElementById('scrollProgress');
+            const btt = document.getElementById('backToTop');
+            const onScroll = () => {
+                const h = document.documentElement;
+                const max = h.scrollHeight - h.clientHeight;
+                if (prog) prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+                if (btt) {
+                    const show = h.scrollTop > 600;
+                    btt.classList.toggle('show', show);
+                    btt.classList.toggle('hidden', false);
+                    btt.style.display = show ? 'flex' : 'none';
+                }
+            };
+            document.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+            btt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // Reveal on scroll
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+            // Animated counters (respects reduced motion)
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const cio = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (!e.isIntersecting) return;
+                    const el = e.target;
+                    cio.unobserve(el);
+                    const target = parseInt(el.getAttribute('data-count') || '0', 10);
+                    if (!target || reduced) { el.textContent = String(target || el.textContent); return; }
+                    const t0 = performance.now(), dur = 1200;
+                    const step = (t) => {
+                        const p = Math.min(1, (t - t0) / dur);
+                        el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
+                        if (p < 1) requestAnimationFrame(step);
+                    };
+                    requestAnimationFrame(step);
+                });
+            }, { threshold: 0.6 });
+            document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+            // FAQ accordion
+            document.querySelectorAll('.faq-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    const open = item.classList.contains('open');
+                    document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-toggle')?.setAttribute('aria-expanded', 'false'); });
+                    if (!open) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+                });
+            });
+
+            // Practice live filter (text-based, preserves all file paths)
+            const search = document.getElementById('practiceSearch');
+            const grid = document.getElementById('practiceGrid');
+            const count = document.getElementById('practiceCount');
+            const updateCount = () => {
+                if (!grid || !count) return;
+                const cards = Array.from(grid.children).filter(n => n.tagName !== 'SCRIPT');
+                const vis = cards.filter(c => c.style.display !== 'none').length;
+                count.textContent = vis + ' of ' + cards.length + ' areas shown';
+            };
+            search?.addEventListener('input', () => {
+                const q = search.value.trim().toLowerCase();
+                Array.from(grid.children).forEach(card => {
+                    if (!card.querySelector) return;
+                    const text = (card.textContent || '').toLowerCase();
+                    card.style.display = (!q || text.includes(q)) ? '' : 'none';
+                });
+                updateCount();
+            });
+            // Tag cards for reveal styling without touching image paths
+            if (grid) Array.from(grid.children).forEach(c => { c.classList?.add('reveal', 'card-ring', 'visible'); });
+            updateCount();
+
+            // Rights EN/LG placeholder toggle
+            const tabs = document.querySelectorAll('[data-rights-tab]');
+            tabs.forEach(tab => tab.addEventListener('click', () => {
+                tabs.forEach(t => { t.classList.remove('chip-active'); t.classList.add('text-slate-600'); });
+                tab.classList.add('chip-active'); tab.classList.remove('text-slate-600');
+                const lang = tab.getAttribute('data-rights-tab');
+                document.querySelectorAll('[data-rights-en]').forEach(el => el.classList.toggle('hidden', lang !== 'en'));
+                document.querySelectorAll('[data-rights-lg]').forEach(el => el.classList.toggle('hidden', lang !== 'lg'));
+            }));
+
+            // Guard carousel if images/placeholders missing
+            const carousel = document.getElementById('advocate-carousel');
+            if (carousel && !carousel.children.length) carousel.style.display = 'none';
+        }
     </script>
 </body>
 </html>
